@@ -7,21 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45069E021C5CC365000422EA /* EventHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45069E011C5CC365000422EA /* EventHomeCell.swift */; };
+		45069E041C5CD294000422EA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45069E031C5CD294000422EA /* Event.swift */; };
+		45069E061C5CF43D000422EA /* SampleEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45069E051C5CF43D000422EA /* SampleEventData.swift */; };
+		4532618E1C5A58E300F8BDB4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4532618D1C5A58E300F8BDB4 /* SignUpViewController.swift */; };
+		453261901C5A956400F8BDB4 /* EventsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4532618F1C5A956400F8BDB4 /* EventsHomeViewController.swift */; };
 		453C668B1C57E8E000BBAC55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C668A1C57E8E000BBAC55 /* AppDelegate.swift */; };
-		453C668D1C57E8E000BBAC55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C668C1C57E8E000BBAC55 /* ViewController.swift */; };
+		453C668D1C57E8E000BBAC55 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C668C1C57E8E000BBAC55 /* FirstViewController.swift */; };
 		453C66901C57E8E000BBAC55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453C668E1C57E8E000BBAC55 /* Main.storyboard */; };
 		453C66921C57E8E000BBAC55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453C66911C57E8E000BBAC55 /* Assets.xcassets */; };
 		453C66951C57E8E000BBAC55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453C66931C57E8E000BBAC55 /* LaunchScreen.storyboard */; };
+		45DE74641C5B3D9700D25797 /* NoImageTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */; };
+		45F95E171C5B9C2B00355000 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */; };
+		8F04D44705D55524B83EC208 /* Pods_CollegeConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE21CB6DC48275CA8CB574 /* Pods_CollegeConnect.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AFE21CB6DC48275CA8CB574 /* Pods_CollegeConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegeConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27F50E02E78417301E3A1B61 /* Pods-CollegeConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeConnect/Pods-CollegeConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		45069E011C5CC365000422EA /* EventHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHomeCell.swift; sourceTree = "<group>"; };
+		45069E031C5CD294000422EA /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		45069E051C5CF43D000422EA /* SampleEventData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleEventData.swift; sourceTree = "<group>"; };
+		4532618D1C5A58E300F8BDB4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4532618F1C5A956400F8BDB4 /* EventsHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsHomeViewController.swift; sourceTree = "<group>"; };
 		453C66871C57E8E000BBAC55 /* CollegeConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		453C668A1C57E8E000BBAC55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		453C668C1C57E8E000BBAC55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		453C668C1C57E8E000BBAC55 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		453C668F1C57E8E000BBAC55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		453C66911C57E8E000BBAC55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453C66941C57E8E000BBAC55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		453C66961C57E8E000BBAC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoImageTabbar.swift; sourceTree = "<group>"; };
+		45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		5486FE96B692B08157A28122 /* Pods-CollegeConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeConnect/Pods-CollegeConnect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F04D44705D55524B83EC208 /* Pods_CollegeConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01AC0245C166E3C602EBF653 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27F50E02E78417301E3A1B61 /* Pods-CollegeConnect.debug.xcconfig */,
+				5486FE96B692B08157A28122 /* Pods-CollegeConnect.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		453C667E1C57E8E000BBAC55 = {
 			isa = PBXGroup;
 			children = (
 				453C66891C57E8E000BBAC55 /* CollegeConnect */,
 				453C66881C57E8E000BBAC55 /* Products */,
+				01AC0245C166E3C602EBF653 /* Pods */,
+				50B97E55D7E9D69BEBBBF4A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +85,28 @@
 			isa = PBXGroup;
 			children = (
 				453C668A1C57E8E000BBAC55 /* AppDelegate.swift */,
-				453C668C1C57E8E000BBAC55 /* ViewController.swift */,
+				453C668C1C57E8E000BBAC55 /* FirstViewController.swift */,
+				4532618D1C5A58E300F8BDB4 /* SignUpViewController.swift */,
+				45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */,
 				453C668E1C57E8E000BBAC55 /* Main.storyboard */,
+				45069E011C5CC365000422EA /* EventHomeCell.swift */,
+				45069E031C5CD294000422EA /* Event.swift */,
+				45069E051C5CF43D000422EA /* SampleEventData.swift */,
+				45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */,
+				4532618F1C5A956400F8BDB4 /* EventsHomeViewController.swift */,
 				453C66911C57E8E000BBAC55 /* Assets.xcassets */,
 				453C66931C57E8E000BBAC55 /* LaunchScreen.storyboard */,
 				453C66961C57E8E000BBAC55 /* Info.plist */,
 			);
 			path = CollegeConnect;
+			sourceTree = "<group>";
+		};
+		50B97E55D7E9D69BEBBBF4A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AFE21CB6DC48275CA8CB574 /* Pods_CollegeConnect.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 453C66991C57E8E000BBAC55 /* Build configuration list for PBXNativeTarget "CollegeConnect" */;
 			buildPhases = (
+				16ED177489F913811C59A9C9 /* Check Pods Manifest.lock */,
 				453C66831C57E8E000BBAC55 /* Sources */,
 				453C66841C57E8E000BBAC55 /* Frameworks */,
 				453C66851C57E8E000BBAC55 /* Resources */,
+				EF6C5CC5DECA835A3539F1D3 /* Embed Pods Frameworks */,
+				2D4C50F16809BB898BB682FC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,12 +178,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16ED177489F913811C59A9C9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2D4C50F16809BB898BB682FC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeConnect/Pods-CollegeConnect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF6C5CC5DECA835A3539F1D3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeConnect/Pods-CollegeConnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		453C66831C57E8E000BBAC55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				453C668D1C57E8E000BBAC55 /* ViewController.swift in Sources */,
+				45069E041C5CD294000422EA /* Event.swift in Sources */,
+				45069E061C5CF43D000422EA /* SampleEventData.swift in Sources */,
+				45F95E171C5B9C2B00355000 /* CustomNavigationBar.swift in Sources */,
+				45069E021C5CC365000422EA /* EventHomeCell.swift in Sources */,
+				4532618E1C5A58E300F8BDB4 /* SignUpViewController.swift in Sources */,
+				45DE74641C5B3D9700D25797 /* NoImageTabbar.swift in Sources */,
+				453C668D1C57E8E000BBAC55 /* FirstViewController.swift in Sources */,
+				453261901C5A956400F8BDB4 /* EventsHomeViewController.swift in Sources */,
 				453C668B1C57E8E000BBAC55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +350,7 @@
 		};
 		453C669A1C57E8E000BBAC55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27F50E02E78417301E3A1B61 /* Pods-CollegeConnect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CollegeConnect/Info.plist;
@@ -258,6 +362,7 @@
 		};
 		453C669B1C57E8E000BBAC55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5486FE96B692B08157A28122 /* Pods-CollegeConnect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CollegeConnect/Info.plist;
@@ -286,6 +391,7 @@
 				453C669B1C57E8E000BBAC55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
