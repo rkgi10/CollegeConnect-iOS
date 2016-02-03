@@ -12,6 +12,8 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView : UIScrollView!
     
+    
+    var events = sampleeventData
     var pageImages : [UIImage] = []
     var pageViews : [UIImageView?] = []
     var pageCount = 0
@@ -25,6 +27,7 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         setImagesForScrollView()
         setViewsInScrollView()
         loadVisiblePages()
+        
         
 
         // Do any additional setup after loading the view.
@@ -78,7 +81,7 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
             frame.origin.y = 0.0
             
             let newPageView = UIImageView(image: pageImages[page])
-            newPageView.contentMode = .ScaleToFill
+            newPageView.contentMode = .ScaleAspectFill
             newPageView.frame = frame
             scrollView.addSubview(newPageView)
             
@@ -147,3 +150,28 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     */
 
 }
+
+extension EventsHomeViewController : UITableViewDataSource {
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.count
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("EventHomeCell", forIndexPath: indexPath) as! EventHomeCell
+        cell.event = events[indexPath.row]
+        
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+}
+
+extension EventsHomeViewController : UITableViewDelegate {
+    }

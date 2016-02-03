@@ -17,6 +17,7 @@
 		453C66901C57E8E000BBAC55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453C668E1C57E8E000BBAC55 /* Main.storyboard */; };
 		453C66921C57E8E000BBAC55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453C66911C57E8E000BBAC55 /* Assets.xcassets */; };
 		453C66951C57E8E000BBAC55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453C66931C57E8E000BBAC55 /* LaunchScreen.storyboard */; };
+		45B6A6851C627DDF00F2C16C /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6A6841C627DDF00F2C16C /* UIImageColors.swift */; };
 		45DE74641C5B3D9700D25797 /* NoImageTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */; };
 		45F95E171C5B9C2B00355000 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */; };
 		8F04D44705D55524B83EC208 /* Pods_CollegeConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE21CB6DC48275CA8CB574 /* Pods_CollegeConnect.framework */; };
@@ -37,6 +38,7 @@
 		453C66911C57E8E000BBAC55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453C66941C57E8E000BBAC55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		453C66961C57E8E000BBAC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45B6A6841C627DDF00F2C16C /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
 		45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoImageTabbar.swift; sourceTree = "<group>"; };
 		45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		5486FE96B692B08157A28122 /* Pods-CollegeConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeConnect/Pods-CollegeConnect.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */,
 				453C668E1C57E8E000BBAC55 /* Main.storyboard */,
 				45069E011C5CC365000422EA /* EventHomeCell.swift */,
+				45B6A6841C627DDF00F2C16C /* UIImageColors.swift */,
 				45069E031C5CD294000422EA /* Event.swift */,
 				45069E051C5CF43D000422EA /* SampleEventData.swift */,
 				45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */,
@@ -240,6 +243,7 @@
 				453C668D1C57E8E000BBAC55 /* FirstViewController.swift in Sources */,
 				453261901C5A956400F8BDB4 /* EventsHomeViewController.swift in Sources */,
 				453C668B1C57E8E000BBAC55 /* AppDelegate.swift in Sources */,
+				45B6A6851C627DDF00F2C16C /* UIImageColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

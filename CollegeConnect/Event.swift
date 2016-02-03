@@ -26,8 +26,13 @@ struct Event {
     var totalSeats : Int?
     var occupiedSeats : Int?
     var lastregtime : Int?
-    var imageOfEvent : UIImage?
+    var imageOfEvent : UIImage? {
+        didSet{
+            self.eventColors = self.imageOfEvent?.getColors(CGSize(width: 250, height: 250))
+            }
+    }
     var verified : Bool?
+    var eventColors : UIImageColors?
     
     init(name : String , aboutEvent : String, contacts : [[String]], startDate : String, endDate : String, venue : String, clubId : Int)
     {
@@ -40,6 +45,20 @@ struct Event {
         self.clubId = clubId
         self.clubName = clubIdDict[clubId]
     }
+    
+    init(name : String , aboutEvent : String, contacts : [[String]], startDate : String, endDate : String, venue : String, clubId : Int, imageOfEvent : String)
+    {
+        self.name = name
+        self.aboutEvent = aboutEvent
+        self.contacts = contacts
+        self.startDate = startDate
+        self.endDate = endDate
+        self.venue = venue
+        self.clubId = clubId
+        self.clubName = clubIdDict[clubId]
+        self.imageOfEvent = UIImage(named: imageOfEvent)
+    }
+    
     
     
 }

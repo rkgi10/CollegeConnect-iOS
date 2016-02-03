@@ -17,7 +17,10 @@ class EventHomeCell : UITableViewCell {
     @IBOutlet weak var eventTimeLabel : UILabel!
     @IBOutlet weak var eventVenueLabel : UILabel!
     @IBOutlet weak var eventImageView : UIImageView!
-    @IBOutlet weak var clubNameBackgroundView : UIView!
+    @IBOutlet weak var viewBehindClubName: UIView!
+    @IBOutlet weak var bottomView: UIView!
+    
+   // @IBOutlet weak var clubNameBackgroundView : UIView!
     //@IBOutlet weak var likeEventButton : UIButton!
     
     var event : Event! {
@@ -28,11 +31,17 @@ class EventHomeCell : UITableViewCell {
             self.eventVenueLabel.text = event.venue
             self.eventImageView.image = event.imageOfEvent
             
-            clubNameBackgroundView.backgroundColor = UIColor.orangeColor()
-            clubNameBackgroundView.frame.size.width = clubNameLabel.frame.width + 5.0
-            clubNameBackgroundView.frame.size.height = clubNameLabel.frame.height + 4.0
+            self.eventImageView.contentMode = .ScaleAspectFill
             
-            eventImageView.alpha = 0.4
+           // clubNameBackgroundView.backgroundColor = UIColor.orangeColor()
+          //  clubNameBackgroundView.frame.size.width = clubNameLabel.frame.width + 5.0
+          //  clubNameBackgroundView.frame.size.height = clubNameLabel.frame.height + 4.0
+            
+            eventImageView.alpha = 1.0
+            
+            
+            
+            
             
             
         }
