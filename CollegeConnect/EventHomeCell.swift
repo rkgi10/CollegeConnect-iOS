@@ -33,13 +33,8 @@ class EventHomeCell : UITableViewCell {
             
             self.eventImageView.contentMode = .ScaleAspectFill
             
-           // clubNameBackgroundView.backgroundColor = UIColor.orangeColor()
-          //  clubNameBackgroundView.frame.size.width = clubNameLabel.frame.width + 5.0
-          //  clubNameBackgroundView.frame.size.height = clubNameLabel.frame.height + 4.0
             
             eventImageView.alpha = 1.0
-            
-            
             
             
             
@@ -48,11 +43,22 @@ class EventHomeCell : UITableViewCell {
     }
     
    // var event
+    override func layoutSubviews() {
+        self.bottomView.layer.borderWidth = 1.0
+        self.bottomView.layer.borderColor = UIColor(white: 0.7, alpha: 0.8).CGColor
+        self.bottomView.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+    }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

@@ -26,11 +26,7 @@ struct Event {
     var totalSeats : Int?
     var occupiedSeats : Int?
     var lastregtime : Int?
-    var imageOfEvent : UIImage? {
-        didSet{
-            self.eventColors = self.imageOfEvent?.getColors(CGSize(width: 250, height: 250))
-            }
-    }
+    var imageOfEvent : UIImage?
     var verified : Bool?
     var eventColors : UIImageColors?
     
