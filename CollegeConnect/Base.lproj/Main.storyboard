@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -9,7 +9,7 @@
         <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="CollegeConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstScreen" id="BYZ-38-t0r" customClass="FirstViewController" customModule="CollegeConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -117,7 +117,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="ylu-Xa-VnW">
             <objects>
-                <viewController id="p17-9v-1Tn" customClass="SignInViewController" customModule="CollegeConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInScreen" id="p17-9v-1Tn" customClass="SignInViewController" customModule="CollegeConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fea-fU-14q"/>
                         <viewControllerLayoutGuide type="bottom" id="AOL-Cx-b2W"/>
@@ -126,17 +126,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vr3-Hf-YWN">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vr3-Hf-YWN">
                                 <rect key="frame" x="46" y="190" width="283" height="19"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                 <connections>
                                     <outlet property="delegate" destination="p17-9v-1Tn" id="tOf-QE-ojp"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PASSWORD" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOx-PY-9yL">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PASSWORD" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOx-PY-9yL">
                                 <rect key="frame" x="46" y="259" width="283" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="p17-9v-1Tn" id="Y1Q-pG-T84"/>
@@ -180,12 +180,12 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umf-Po-CWX">
-                                <rect key="frame" x="46" y="175" width="30.5" height="12"/>
+                                <rect key="frame" x="46" y="173" width="30.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuK-ad-LGl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuK-ad-LGl">
                                 <rect key="frame" x="46" y="247" width="57.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -220,10 +220,10 @@
                             <constraint firstItem="aom-4E-g6p" firstAttribute="top" secondItem="XgI-RJ-9eZ" secondAttribute="bottom" constant="50" id="YCH-m2-ZBO"/>
                             <constraint firstItem="U0L-9b-d6p" firstAttribute="centerX" secondItem="4P6-7P-VFA" secondAttribute="centerX" id="YGE-LX-a51"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yOx-PY-9yL" secondAttribute="trailing" constant="30" id="Z1X-ts-2h1"/>
-                            <constraint firstItem="yOx-PY-9yL" firstAttribute="top" secondItem="kuK-ad-LGl" secondAttribute="bottom" id="bCs-xv-0lu"/>
+                            <constraint firstItem="yOx-PY-9yL" firstAttribute="top" secondItem="kuK-ad-LGl" secondAttribute="bottom" constant="5" id="bCs-xv-0lu"/>
                             <constraint firstItem="umf-Po-CWX" firstAttribute="leading" secondItem="4P6-7P-VFA" secondAttribute="leadingMargin" constant="30" id="c4L-d6-hhI"/>
                             <constraint firstItem="aom-4E-g6p" firstAttribute="top" secondItem="r5u-oo-JiO" secondAttribute="bottom" id="cJq-lq-i8x"/>
-                            <constraint firstItem="Vr3-Hf-YWN" firstAttribute="top" secondItem="umf-Po-CWX" secondAttribute="bottom" constant="3" id="d02-Os-NZb"/>
+                            <constraint firstItem="Vr3-Hf-YWN" firstAttribute="top" secondItem="umf-Po-CWX" secondAttribute="bottom" constant="5" id="d02-Os-NZb"/>
                             <constraint firstItem="yOx-PY-9yL" firstAttribute="top" secondItem="Vr3-Hf-YWN" secondAttribute="bottom" constant="50" id="fRB-Rs-KZY"/>
                             <constraint firstItem="Vr3-Hf-YWN" firstAttribute="top" secondItem="fea-fU-14q" secondAttribute="bottom" constant="170" id="iA2-m8-ZE6"/>
                             <constraint firstItem="r5u-oo-JiO" firstAttribute="leading" secondItem="4P6-7P-VFA" secondAttribute="leading" id="k6A-2w-HWf"/>
@@ -283,7 +283,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="cTo-4t-rvM">
             <objects>
-                <tabBarController id="6ch-Kl-jm1" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeScreen" id="6ch-Kl-jm1" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="hDo-dU-9VQ" customClass="NoImageTabbar" customModule="CollegeConnect" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

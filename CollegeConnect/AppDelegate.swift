@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //call this to decide which screen should be the initial view controller
+        whichScreenWillBeFirstScreen()
+        
+        
+        
         return true
     }
 
@@ -39,6 +45,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func checkUserExistsAndLoggedIn() -> (Bool,Bool){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let user = defaults.objectForKey("User") as? User
+        if user == nil {
+            return (false , false)
+        }
+        else {
+                if user?.isLoggedIn == true && user?.isLoggedIn != nil {
+                    return (true, true)
+                }
+                else
+                {
+                    return (true, false)
+                }
+            }
+    }
+    
+    func whichScreenWillBeFirstScreen()
+    {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let doesUserExistAndIsLoggedIn = checkUserExistsAndLoggedIn()
+        
+        if !(doesUserExistAndIsLoggedIn.0) {
+            let firstScreenController = mainStoryboard.instantiateViewControllerWithIdentifier("FirstScreen") as? FirstViewController
+            self.window?.rootViewController = firstScreenController
+            self.window?.makeKeyAndVisible()
+            
+        }
+        else {
+            
+            if doesUserExistAndIsLoggedIn.1 {
+                let homeScreenController = mainStoryboard.instantiateViewControllerWithIdentifier("HomeScreen") as? UITabBarController
+                self.window?.rootViewController = homeScreenController
+                self.window?.makeKeyAndVisible()
+                
+            }
+            else {
+                let firstScreenController = mainStoryboard.instantiateViewControllerWithIdentifier("FirstScreen") as? FirstViewController
+                self.window?.rootViewController = firstScreenController
+                self.window?.makeKeyAndVisible()
+                
+                
+            }
+        }
+
     }
 
 

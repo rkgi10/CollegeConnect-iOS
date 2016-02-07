@@ -38,7 +38,18 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let user = defaults.objectForKey("User") as? User
+        if user == nil {
+            if let firstScreenController = storyboard?.instantiateViewControllerWithIdentifier("FirstScreen") as? FirstViewController{
+                self.presentViewController(firstScreenController, animated: true, completion: nil)
+                
+            }
+        }
+    }
     
     func setAppearanceForTabbar()
     {

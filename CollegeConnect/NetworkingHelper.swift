@@ -35,9 +35,17 @@ struct NetworkingHelper {
                         ]
         Alamofire.request(.GET, signInUrl, headers : headers).responseJSON{
             response in
-            //debugPrint(response.request)
-            //debugPrint(response.data)
-            debugPrint(response.result)
+            debugPrint(response.result.value)
+            
+            switch response.result {
+            case .Success(let value):
+                let json = JSON(value)
+                let token = json["token"]
+                print(token)
+            case .Failure(let error):
+                debugPrint(error)
+            }
+            
         }
             
         
