@@ -11,11 +11,16 @@ import UIKit
 
 class CustomNavigationBar: UINavigationBar {
     
-    override func sizeThatFits(size: CGSize) -> CGSize {
-        var sizeThatFits = super.sizeThatFits(size)
-        
-        sizeThatFits.height = 40
-        return sizeThatFits
+//    override func sizeThatFits(size: CGSize) -> CGSize {
+//        var sizeThatFits = super.sizeThatFits(size)
+//        
+//        sizeThatFits.height = 40
+//        return sizeThatFits
+//    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        UINavigationBar.appearance().titleTextAttributes = ([NSForegroundColorAttributeName : UIColor(white: 0.0, alpha: 1.0), NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 18.0)!])
     }
     
 }

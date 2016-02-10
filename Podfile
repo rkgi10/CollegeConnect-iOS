@@ -7,5 +7,6 @@ target 'CollegeConnect' do
 pod 'Alamofire', '~> 3.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'CryptoSwift'
+pod 'Google/CloudMessaging'
 end
 

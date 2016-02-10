@@ -11,6 +11,7 @@ import UIKit
 class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView : UIScrollView!
+    @IBOutlet weak var tableView: UITableView!
     
     
     var events = sampleeventData
@@ -28,6 +29,8 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         setViewsInScrollView()
         loadVisiblePages()
         
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
         
 
         // Do any additional setup after loading the view.
@@ -38,19 +41,14 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        let user = defaults.objectForKey("User") as? User
-        if user == nil {
-            if let firstScreenController = storyboard?.instantiateViewControllerWithIdentifier("FirstScreen") as? FirstViewController{
-                self.presentViewController(firstScreenController, animated: true, completion: nil)
-                
-            }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowEventDetail" {
+            let vc = segue.destinationViewController as! EventDetailViewController
+            vc.event = events[(sender?.row)!]
         }
     }
     
+
     func setAppearanceForTabbar()
     {
         UITabBar.appearance().barTintColor = UIColor.whiteColor()
@@ -182,6 +180,7 @@ extension EventsHomeViewController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("ShowEventDetail", sender: indexPath)
     }
     
 }

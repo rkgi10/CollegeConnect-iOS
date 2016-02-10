@@ -24,30 +24,67 @@ enum HTTPRequestContentType {
 struct NetworkingHelper {
     
     let base_url = "https://sheltered-fjord-8731.herokuapp.com/api/"
+    let dataHelper = DataHelper.sharedInstance
     
     
-    func makeSignInRequest(userName : String, withPassword password : String) {
+    func makeSignInRequest(userName : String, withPassword password : String, completionHandler : (message : String) ->Void) {
         let signInUrl = base_url + "user/token"
         let credentialData = "\(userName):\(password)".toBase64()
+        var messageToBeReturned = ""
         
         let headers = ["Authorization" : "Basic \(credentialData)",
                         "Content-Type": "application/x-www-form-urlencoded"
                         ]
         Alamofire.request(.GET, signInUrl, headers : headers).responseJSON{
             response in
-            debugPrint(response.result.value)
+           // debugPrint(response.request)
             
             switch response.result {
             case .Success(let value):
+                //extract the token and save the user's info to disk
                 let json = JSON(value)
-                let token = json["token"]
-                print(token)
+                if let token = json["token"].string {
+                   messageToBeReturned = self.dataHelper.setUserInDefaults(userName, password: password, withToken: token)
+                }
+                else
+                {
+                    debugPrint(response.result.value)
+                    messageToBeReturned = JSON(response.result.value!)["message"].stringValue
+                   
+                    
+                }
+               // print(token)
             case .Failure(let error):
                 debugPrint(error)
+                messageToBeReturned = "Failure"
             }
-            
+            completionHandler(message: messageToBeReturned)
         }
             
-        
+       // return messageToBeReturned
     }
+    
+    func loadEventListInBackground()
+    {
+        print("started bg loading")
+        let loadEventsUrl = base_url + "events"
+        Alamofire.request(.GET, loadEventsUrl).responseJSON{
+            response in
+            
+            debugPrint(response.result)
+           
+            switch response.result {
+            case .Success(let value) : let json = JSON(value)
+            let events = json["events"]
+            self.dataHelper.saveEventModel(events)
+            
+            default : print("bg failure")
+                
+                
+            }
+        }
+    }
+    
+    
+    
 }

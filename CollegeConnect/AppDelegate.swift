@@ -50,16 +50,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func checkUserExistsAndLoggedIn() -> (Bool,Bool){
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        let user = defaults.objectForKey("User") as? User
-        if user == nil {
+        let savedUser = defaults.objectForKey("User") as? NSData
+        if savedUser == nil {
+            debugPrint("user not found")
             return (false , false)
         }
         else {
-                if user?.isLoggedIn == true && user?.isLoggedIn != nil {
+            let user = NSKeyedUnarchiver.unarchiveObjectWithData(savedUser!) as! User
+                if user.isLoggedIn == true && user.isLoggedIn != nil {
+                    debugPrint("user found and logged in")
                     return (true, true)
                 }
                 else
                 {
+                    debugPrint("user found but not logged in")
                     return (true, false)
                 }
             }
