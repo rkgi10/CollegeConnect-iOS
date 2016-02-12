@@ -127,6 +127,10 @@ class FirstViewController: UIViewController {
         
     }
     
+    @IBAction func closeToFirstViewController(segue : UIStoryboardSegue) {
+        
+    }
+    
 
 
 }
