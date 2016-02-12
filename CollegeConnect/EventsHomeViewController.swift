@@ -34,6 +34,15 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         
 
         // Do any additional setup after loading the view.
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        //un-hiding the tab bar
+        self.tabBarController?.tabBar.hidden = false
+        self.navigationController?.navigationBar.hidden = false
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,8 +123,8 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         //1 first find out which page is visible
         let pageWidth = scrollView.frame.size.width
         let page = Int(floor(((scrollView.contentOffset.x * 2.0) + pageWidth) / (2.0 * pageWidth)))
-        print("\((scrollView.contentOffset.x * 2.0) + pageWidth))")
-        print("page is \(page)")
+        //print("\((scrollView.contentOffset.x * 2.0) + pageWidth))")
+       // print("page is \(page)")
         
         //2 deciding which pages to load or purge
         let firstPage = page - 1
@@ -123,20 +132,20 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         
         //3Purge anything before the first page
         for(var index = 0; index < firstPage; index++) {
-            print("purging page \(index)")
+           // print("purging page \(index)")
             purgePage(index)
         }
         
         //4 Load pages in our range
         for index in firstPage...lastPage {
-            print("loading page \(index)")
+           // print("loading page \(index)")
 
             loadPage(index)
         }
         
         //5 Purge pages after the last page
         for(var index = lastPage+1; index < pageCount; index++) {
-            print("purging page \(index)")
+           // print("purging page \(index)")
 
             purgePage(index)
         }
@@ -144,6 +153,10 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         loadVisiblePages()
+    }
+    
+    @IBAction func backToEventsHomeViewController(segue : UIStoryboardSegue){
+        
     }
     
     

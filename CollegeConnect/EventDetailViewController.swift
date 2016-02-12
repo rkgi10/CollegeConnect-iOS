@@ -11,14 +11,50 @@ import UIKit
 class EventDetailViewController: UITableViewController {
     
     var event : Event!
+    var rowType : [String] = []
+    var rowInfo : [String] = []
+    var rowInfoDetail : [String] = []
+    var i = 0
     
     @IBOutlet weak var eventImageView : UIImageView!
+    @IBOutlet weak var attenEventButton : UIButton!
+    @IBOutlet weak var backButton : UIButton!
 
+    override func prefersStatusBarHidden() -> Bool {
+       return true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         eventImageView.image = event.imageOfEvent
+        setupRowsForTableView()
+        
+        if let image = event.imageOfEvent {
+            tableView.backgroundColor = UIColor(patternImage: image)
+        }
+        
+        let blurEffect = UIBlurEffect(style: .Dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        tableView.backgroundView = blurView
+        attenEventButton.layer.borderColor = UIColor.whiteColor().CGColor
+        attenEventButton.layer.borderWidth = 1.0
+        attenEventButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        
+        
+        
+        
+        
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
+        //set table view auto height
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        //tableviewedgeinsets
+        
+        
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,7 +64,14 @@ class EventDetailViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.title = event.name
+        //hiding navigation bar
+        self.navigationController?.navigationBar.hidden = true
+        
+        
+        
+        
+        //hiding the tab bar
+        self.tabBarController?.tabBar.hidden = true
         
     }
 
@@ -46,18 +89,50 @@ class EventDetailViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+         print(rowType.count)
+         return rowType.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let eventType = rowType[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier(eventType, forIndexPath: indexPath)
+        
+        switch eventType {
+        case "Type1" : let label = cell.viewWithTag(100) as! UILabel
+                        label.text = event.name
+                        label.textColor = UIColor.whiteColor()
+            
+        case "Type2" : let heading = cell.viewWithTag(100) as! UILabel
+                        heading.text = rowInfo[indexPath.row]
+                        heading.textColor = UIColor.whiteColor()
+                        let detail = cell.viewWithTag(101) as! UILabel
+                        detail.text = rowInfoDetail[indexPath.row]
+                        detail.textColor = UIColor.whiteColor()
+            
+        case "Type3" : let heading = cell.viewWithTag(100) as! UILabel
+                        heading.text = rowInfo[indexPath.row]
+                        heading.textColor = UIColor.whiteColor()
+                        (cell.viewWithTag(101) as! UILabel).text = event.contacts[0][0]
+                        (cell.viewWithTag(101) as! UILabel).textColor = UIColor.whiteColor()
+                        (cell.viewWithTag(102) as! UILabel).text = event.contacts[0][1]
+                        (cell.viewWithTag(102) as! UILabel).textColor = UIColor.whiteColor()
+                        (cell.viewWithTag(103) as! UILabel).text = event.contacts[1][0]
+                        (cell.viewWithTag(103) as! UILabel).textColor = UIColor.whiteColor()
+                        (cell.viewWithTag(104) as! UILabel).text = event.contacts[1][1]
+                        (cell.viewWithTag(104) as! UILabel).textColor = UIColor.whiteColor()
+        default : print("no match of cells")
+        }
 
-        // Configure the cell...
-
+        
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -103,5 +178,58 @@ class EventDetailViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func setupRowsForTableView()
+    {
+        if let name = event.name {
+            rowType.append("Type1")
+            rowInfo.append("")
+            rowInfoDetail.append("")
+            i++
+        }
+        if event.clubName != nil {
+            rowType.append("Type2")
+            rowInfo.append("Organized By")
+            rowInfoDetail.append(event.clubName!)
+            i++
+        }
+        if event.timeanddate != nil {
+            rowType.append("Type2")
+            rowInfo.append("Time and date")
+            rowInfoDetail.append(String(event.timeanddate!))
+            i++
+        }
+        if event.venue != nil {
+            rowType.append("Type2")
+            rowInfo.append("Venue")
+            rowInfoDetail.append(event.venue)
+            
+        }
+        if event.aboutEvent != nil {
+            rowType.append("Type2")
+            rowInfo.append("About Event")
+            rowInfoDetail.append(event.aboutEvent!)
+        }
+        if event.contacts.count != 0 {
+            rowType.append("Type3")
+            rowInfo.append("Contact Details")
+            rowInfoDetail.append("")
+        }
+    }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

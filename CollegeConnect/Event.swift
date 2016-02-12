@@ -24,12 +24,15 @@ class Event :NSObject, NSCoding {
     var venue : String!
     var noOfLikes : Int?
     var totalSeats : Int?
-    var occupiedSeats : Int?
-    var lastregtime : Int?
+    //var occupiedSeats : Int?
+    var lastregtime : String?
     var imageOfEvent : UIImage?
     var verified : Bool?
     var eventColors : UIImageColors?
     var linkOfImageOfEvent : String?
+    var prize : [Int] = []
+    var fees : Int?
+    var availableSeats : Int?
     
     required init?(coder aDecoder: NSCoder) {
         clubName = aDecoder.decodeObjectForKey("clubName") as? String
@@ -44,8 +47,8 @@ class Event :NSObject, NSCoding {
         venue = aDecoder.decodeObjectForKey("venue") as! String
         noOfLikes = aDecoder.decodeObjectForKey("noOfLikes") as? Int
         totalSeats = aDecoder.decodeObjectForKey("totalSeats") as? Int
-        occupiedSeats = aDecoder.decodeObjectForKey("occupiedSeats") as? Int
-        lastregtime = aDecoder.decodeObjectForKey("lastregtime") as? Int
+        availableSeats = aDecoder.decodeObjectForKey("occupiedSeats") as? Int
+        lastregtime = aDecoder.decodeObjectForKey("lastregtime") as? String
         imageOfEvent = aDecoder.decodeObjectForKey("imageOfEvent") as? UIImage
         verified = aDecoder.decodeObjectForKey("verified") as? Bool
        // eventColors = aDecoder.decodeObjectForKey("eventColors") as? UIImageColors
@@ -66,7 +69,7 @@ class Event :NSObject, NSCoding {
         aCoder.encodeObject(venue, forKey: "venue")
         aCoder.encodeObject(noOfLikes, forKey: "noOfLikes")
         aCoder.encodeObject(totalSeats, forKey: "totalSeats")
-        aCoder.encodeObject(occupiedSeats, forKey: "occupiedSeats")
+        aCoder.encodeObject(availableSeats, forKey: "occupiedSeats")
         aCoder.encodeObject(lastregtime, forKey: "lastregtime")
         aCoder.encodeObject(imageOfEvent, forKey: "imageOfEvent")
         aCoder.encodeObject(verified, forKey: "verified")
@@ -97,6 +100,22 @@ class Event :NSObject, NSCoding {
         self.clubId = clubId
         self.clubName = clubIdDict[clubId]
         self.imageOfEvent = UIImage(named: imageOfEvent)
+    }
+    
+    init(name : String , aboutEvent : String, contacts : [[String]], startDate : String, endDate : String, venue : String, clubName : String, imageOfEvent : String)
+    {
+        self.name = name
+        self.aboutEvent = aboutEvent
+        self.contacts = contacts
+        self.startDate = startDate
+        self.endDate = endDate
+        self.venue = venue
+        self.clubName = clubName
+        self.imageOfEvent = UIImage(named: imageOfEvent)
+    }
+    
+    init(name : String) {
+        self.name = name
     }
     
     

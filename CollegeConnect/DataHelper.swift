@@ -11,6 +11,7 @@ import SwiftyJSON
 class DataHelper {
     
     static let sharedInstance = DataHelper()
+    let dataModel = DataModel.sharedInstance
     
     init()
     {
@@ -53,7 +54,36 @@ class DataHelper {
     
     func saveEventModel(events : JSON)
     {
-        
+        if let eventsArray = events.array {
+        print(eventsArray.count)
+            var i = 0
+        for event in eventsArray {
+            i++
+            print(i)
+//            let newEvent = Event(name: event["name"].stringValue)
+//            newEvent.clubName = event["clubname"].stringValue
+//            newEvent.startDate = event["sdt"].stringValue
+//            newEvent.lastregtime = event["lrt"].stringValue
+//            newEvent.clubId = event["club_id"].intValue
+//            newEvent.verified = event["verified"].boolValue
+//            newEvent.aboutEvent = event["about"].stringValue
+//            newEvent.endDate = event["edt"].stringValue
+//            newEvent.totalSeats = event["total_seats"].intValue
+//           //TODO : figure out what this created by is
+//            //newEvent.cretedby
+//            newEvent.prize[0] = event["prize"].intValue
+//            newEvent.fees = event["fees"].intValue
+//            newEvent.contacts = [[ event["contacts"][0]["name"].stringValue, String(event["contacts"][0]["mobno"].intValue) ],[event["contacts"][1]["name"].stringValue, String(event["contacts"][1]["mobno"].intValue)]]
+//            newEvent.venue = event["venue"].stringValue
+//            newEvent.linkOfImageOfEvent = event["image"].stringValue
+//            newEvent.availableSeats = event["available_seats"].intValue
+//            newEvent.eventId = event["event_id"].intValue
+//            
+//            dataModel.events.append(newEvent)
+            
+        }
+    }
+    dataModel.saveEvents()
     }
     
     

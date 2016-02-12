@@ -23,7 +23,7 @@
 		453C66951C57E8E000BBAC55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453C66931C57E8E000BBAC55 /* LaunchScreen.storyboard */; };
 		455EFA6A1C65F116008B3F28 /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EFA691C65F116008B3F28 /* NetworkingHelper.swift */; };
 		45B6A6851C627DDF00F2C16C /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6A6841C627DDF00F2C16C /* UIImageColors.swift */; };
-		45CF3F0C1C6B56CA00883021 /* EventDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF3F0B1C6B56CA00883021 /* EventDataModel.swift */; };
+		45CF3F0C1C6B56CA00883021 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF3F0B1C6B56CA00883021 /* DataModel.swift */; };
 		45DE74641C5B3D9700D25797 /* NoImageTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */; };
 		45F95E171C5B9C2B00355000 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */; };
 		8F04D44705D55524B83EC208 /* Pods_CollegeConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE21CB6DC48275CA8CB574 /* Pods_CollegeConnect.framework */; };
@@ -50,7 +50,7 @@
 		453C66961C57E8E000BBAC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		455EFA691C65F116008B3F28 /* NetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
 		45B6A6841C627DDF00F2C16C /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
-		45CF3F0B1C6B56CA00883021 /* EventDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDataModel.swift; sourceTree = "<group>"; };
+		45CF3F0B1C6B56CA00883021 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoImageTabbar.swift; sourceTree = "<group>"; };
 		45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		5486FE96B692B08157A28122 /* Pods-CollegeConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeConnect/Pods-CollegeConnect.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				45069E031C5CD294000422EA /* Event.swift */,
-				45CF3F0B1C6B56CA00883021 /* EventDataModel.swift */,
+				45CF3F0B1C6B56CA00883021 /* DataModel.swift */,
 				4513732B1C6611B2000A4958 /* User.swift */,
 				45069E051C5CF43D000422EA /* SampleEventData.swift */,
 			);
@@ -298,7 +298,7 @@
 				453261901C5A956400F8BDB4 /* EventsHomeViewController.swift in Sources */,
 				453C668B1C57E8E000BBAC55 /* AppDelegate.swift in Sources */,
 				451DBFC11C6A878900640161 /* EventDetailViewController.swift in Sources */,
-				45CF3F0C1C6B56CA00883021 /* EventDataModel.swift in Sources */,
+				45CF3F0C1C6B56CA00883021 /* DataModel.swift in Sources */,
 				45B6A6851C627DDF00F2C16C /* UIImageColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

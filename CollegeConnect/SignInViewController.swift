@@ -24,7 +24,7 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var forgotPasswordButton : UIButton!
     
     
-    let networkingHelper = NetworkingHelper()
+    let networkingHelper = NetworkingHelper.sharedInstance
     
     
 

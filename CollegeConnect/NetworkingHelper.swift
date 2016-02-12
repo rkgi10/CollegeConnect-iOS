@@ -21,7 +21,14 @@ enum HTTPRequestContentType {
     case HTTPMultipartContent
 }
 
-struct NetworkingHelper {
+class NetworkingHelper {
+    
+    static let sharedInstance = NetworkingHelper()
+
+    init()
+    {
+        print("network helper initiaised")
+    }
     
     let base_url = "https://sheltered-fjord-8731.herokuapp.com/api/"
     let dataHelper = DataHelper.sharedInstance

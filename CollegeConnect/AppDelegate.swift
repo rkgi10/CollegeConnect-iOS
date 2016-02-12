@@ -12,6 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var dataModel = DataModel.sharedInstance
+    var networkingHelper = NetworkingHelper.sharedInstance
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -93,11 +95,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let firstScreenController = mainStoryboard.instantiateViewControllerWithIdentifier("FirstScreen") as? FirstViewController
                 self.window?.rootViewController = firstScreenController
                 self.window?.makeKeyAndVisible()
-                
+                registerPermissionForLocalNotifications()
                 
             }
         }
 
+    }
+    
+    func registerPermissionForLocalNotifications()
+    {
+        let notificationSettings = UIUserNotificationSettings(
+            forTypes: [.Alert, .Sound, .Badge], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings( notificationSettings)
     }
 
 
