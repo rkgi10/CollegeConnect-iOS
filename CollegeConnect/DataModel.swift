@@ -34,7 +34,7 @@ class DataModel {
         }
         else
         {
-            self.user = NSKeyedUnarchiver.unarchiveObjectWithData(savedUser!) as! User
+            setCurrentUser( NSKeyedUnarchiver.unarchiveObjectWithData(savedUser!) as! User)
         }
     }
     
@@ -58,6 +58,32 @@ class DataModel {
             }
         }
     }
+    
+    //MARK: User-related Methods
+    
+    func getCurrentUser()->User {
+        return self.user
+    }
+    
+    func setCurrentUser(updatedUser : User)
+    {
+      self.user = updatedUser
+      self.user.isLoggedIn = true
+    }
+    
+    
+    func isCurrentUserGuestUser()->Bool {
+        if self.user.userName == "Guest" && self.user.password == "" {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+    
+    
+    //MARK: filepath helper functions
     
     func documentsDirectory() -> String {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)

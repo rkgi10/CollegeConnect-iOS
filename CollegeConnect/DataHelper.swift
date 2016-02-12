@@ -18,6 +18,9 @@ class DataHelper {
         print("Data helper initialised")
     }
     
+    
+    //MARK: set user in defaults for fututre, as returned from login
+    
     func setUserInDefaults(userName : String, password : String, withToken token : String)->String{
         
         
@@ -27,7 +30,7 @@ class DataHelper {
         
         if let savedUser = defaults.objectForKey("User") as? NSData {
             let user = NSKeyedUnarchiver.unarchiveObjectWithData(savedUser) as! User
-            var updatedUser = user
+            let updatedUser = user
             updatedUser.userName = userName
             updatedUser.password = password
             updatedUser.currentToken = token
@@ -37,7 +40,7 @@ class DataHelper {
             defaults.setObject(userToBeSaved, forKey: "User")
         }
         else {
-            var newUser = User(userName: userName, password: password)
+            let newUser = User(userName: userName, password: password)
             newUser.currentToken = token
             newUser.isLoggedIn = true
             
@@ -51,6 +54,47 @@ class DataHelper {
         debugPrint("Data saved")
         return "Success"
     }
+    
+    //MARK: save user in defaults after successful sign-up
+    
+    func setUserInDefaults(user : User, withToken token : String)->String{
+        
+        
+        debugPrint(token)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let savedUser = defaults.objectForKey("User") as? NSData {
+            var updatedUser = NSKeyedUnarchiver.unarchiveObjectWithData(savedUser) as! User
+            updatedUser = user
+            updatedUser.currentToken = token
+            updatedUser.isLoggedIn = true
+            
+            let userToBeSaved = NSKeyedArchiver.archivedDataWithRootObject(updatedUser)
+            defaults.setObject(userToBeSaved, forKey: "User")
+            dataModel.setCurrentUser(updatedUser)
+        }
+        else {
+            let newUser = user
+            newUser.currentToken = token
+            newUser.isLoggedIn = true
+            
+            let userToBeSaved = NSKeyedArchiver.archivedDataWithRootObject(newUser)
+            defaults.setObject(userToBeSaved, forKey: "User")
+            dataModel.setCurrentUser(newUser)
+            
+            
+        }
+        
+        
+        debugPrint("Data saved")
+        return "Success"
+    }
+
+    
+    
+    
+    
     
     func saveEventModel(events : JSON)
     {

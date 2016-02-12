@@ -22,19 +22,30 @@ class SignUpViewController: UIViewController,  UITextFieldDelegate , ValidationD
     @IBOutlet weak var localiteHosteliteSegControl : UISegmentedControl!
     @IBOutlet weak var signUpButton : UIButton!
     @IBOutlet weak var scrollView : UIScrollView!
+    @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
     
     let validator = Validator()
     let user = User(userName: "", password: "")
     let networkHelper = NetworkingHelper.sharedInstance
+    var activeTextField : UITextField? = UITextField()
     
 
+    override func viewDidAppear(animated: Bool) {
+        emailTextfield.becomeFirstResponder()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collegePickerView.dataSource = self
         collegePickerView.delegate = self
         
         validator.registerField(emailTextfield, rules: [RequiredRule(), EmailRule()])
-        validator.registerField(passwordTextfield, rules: [RequiredRule(), PasswordRule()])
+        validator.registerField(passwordTextfield, rules: [RequiredRule(), MinLengthRule(length: 6)])
         validator.registerField(fullnameTextfield, rules: [RequiredRule(), FullNameRule()])
         validator.registerField(mobileNumberTextfield, rules: [MinLengthRule(length: 10)])
         
@@ -43,6 +54,18 @@ class SignUpViewController: UIViewController,  UITextFieldDelegate , ValidationD
         hostelPickerView.selectRow(1, inComponent: 0, animated: true)
         
         setUpTextFields()
+        activityIndicator.hidden = true
+        
+        //setting up notifications for keyboard
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self,
+            selector: "keyboardWillBeShown:",
+            name: UIKeyboardWillShowNotification,
+            object: nil)
+        notificationCenter.addObserver(self,
+            selector: "keyboardWillBeHidden:",
+            name: UIKeyboardWillHideNotification,
+            object: nil)
 
         // Do any additional setup after loading the view.
     }
@@ -108,6 +131,8 @@ class SignUpViewController: UIViewController,  UITextFieldDelegate , ValidationD
     
     
     @IBAction func signupBtnTapped(sender: AnyObject) {
+        
+        //checking specifically for college and thus rollno.
         if collegePickerView.selectedRowInComponent(0) == 1 {
             if let rollNo = rollNoTextfield.text {
                 if rollNo == "" {
@@ -122,24 +147,55 @@ class SignUpViewController: UIViewController,  UITextFieldDelegate , ValidationD
             }
         }
         
+        //now first validate all other fields. and then jump to corresponding success and failure methods
         validator.validate(self)
-        
+        activityIndicator.startAnimating()
+        activityIndicator.hidden = false
     }
     
     func validationSuccessful() {
+        //assign user properties before performing network request
         assignUserProperties()
+        
+        //make network request for signup
         makeSignUpRequest()
         
     }
     
     
     func validationFailed(errors: [UITextField : ValidationError]) {
+        debugPrint(errors)
+        for (field,error) in validator.errors {
+            
+            field.layer.borderColor = UIColor.redColor().CGColor
+            field.layer.borderWidth = 1.0
+            
+            let alertController = UIAlertController(title: "Invalid data", message: error.errorMessage, preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+            alertController.addAction(okAction)
+            
+            presentViewController(alertController, animated: true, completion: {
+                self.activityIndicator.stopAnimating()
+            })
+            field.becomeFirstResponder()
+            break
+
+        }
+        
+        
         
     }
     
     func showError(message : String, focusOn : AnyObject)
     {
+        let alertController = UIAlertController(title: "Oops, something went wrong.", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        alertController.addAction(okAction)
         
+        presentViewController(alertController, animated: true, completion: nil)
+        focusOn.becomeFirstResponder()
+        
+        activityIndicator.stopAnimating()
     }
     
     func assignUserProperties()
@@ -182,10 +238,46 @@ class SignUpViewController: UIViewController,  UITextFieldDelegate , ValidationD
     
     func makeSignUpRequest() {
         
-        
+        networkHelper.makeSignUpRequest(self.user){
+            (message)->Void in
+            
+            if message == "Success" {
+                //current position is sign up is successful from server side. Current user has been updated to reflect that. Now do all the ui related stuff here
+               self.signUpWasSuccessful()
+                
+            }
+            else if message == "Failure" {
+                //current position is sign up hasn't been successful, mostly due to network. so cover up for it by throwing an error and making the user try again.
+                self.signUpWasFailure()
+                
+            }
+            else {
+                //current position is sign up request was successful but returned an error code. handle it here
+                self.signUpWasSuccessfulButError(message)
+            }
+        }
     }
     
+    func signUpWasSuccessful() {
+        activityIndicator.startAnimating()
+        activityIndicator.hidden = true
+        performSegueWithIdentifier("SignUpSuccessful", sender: nil)
+    }
     
+    func signUpWasFailure() {
+        
+        let alertController = UIAlertController(title: "Oops, something went wrong.", message: "We couldn't complete your request. Please check your internet connection and try again", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+        alertController.addAction(okAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+        activityIndicator.stopAnimating()
+    }
+    
+    func signUpWasSuccessfulButError(error : String) {
+        
+    }
     
     
     
@@ -198,6 +290,62 @@ class SignUpViewController: UIViewController,  UITextFieldDelegate , ValidationD
         self.view.endEditing(true)
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if textField == emailTextfield {
+            emailTextfield.resignFirstResponder()
+            passwordTextfield.becomeFirstResponder()
+        }
+        else if textField == passwordTextfield {
+            passwordTextfield.resignFirstResponder()
+            fullnameTextfield.becomeFirstResponder()
+        }
+        else if textField == fullnameTextfield {
+            fullnameTextfield.resignFirstResponder()
+            mobileNumberTextfield.becomeFirstResponder()
+        }
+        else if textField == mobileNumberTextfield {
+            mobileNumberTextfield.resignFirstResponder()
+            rollNoTextfield.becomeFirstResponder()
+        }
+        else if textField == rollNoTextfield {
+            rollNoTextfield.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeTextField = nil
+//        scrollView.scrollEnabled = false
+    }
+    
+    
+    // Called when the UIKeyboardDidShowNotification is sent.
+    func keyboardWillBeShown(sender: NSNotification) {
+        let info: NSDictionary = sender.userInfo!
+        let value: NSValue = info.valueForKey(UIKeyboardFrameBeginUserInfoKey) as! NSValue
+        let keyboardSize: CGSize = value.CGRectValue().size
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        // If active text field is hidden by keyboard, scroll it so it's visible
+        // Your app might not need or want this behavior.
+        var aRect: CGRect = self.view.frame
+        aRect.size.height -= keyboardSize.height
+        let activeTextFieldRect: CGRect? = activeTextField?.frame
+        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
+        if (!CGRectContainsPoint(aRect, activeTextFieldOrigin!)) {
+            scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
+        }
+    }
+    
+    // Called when the UIKeyboardWillHideNotification is sent
+    func keyboardWillBeHidden(sender: NSNotification) {
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
     
 }
 
@@ -224,6 +372,12 @@ extension SignUpViewController : UIPickerViewDataSource {
             return DataModel.sharedInstance.SVNIThostels.count
         }
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeTextField = textField
+    }
+    
+    
     
     
     

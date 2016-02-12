@@ -39,11 +39,11 @@
                         <viewControllerLayoutGuide type="bottom" id="E26-aE-qbR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TOp-Ov-Mkb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="350" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wEf-n6-XYL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="751"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1151"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="WBv-jb-K6j">
@@ -185,6 +185,14 @@
                                             <outlet property="viewBehindClubName" destination="MCE-sQ-VGt" id="Htv-5S-VU0"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="177" id="b1H-JF-ZdZ">
+                                        <rect key="frame" x="0.0" y="751" width="375" height="177"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b1H-JF-ZdZ" id="vJj-YM-5dO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="176.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="8yD-OY-3Km" id="tVz-m9-AyE"/>
@@ -204,7 +212,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Create" id="6WK-VT-mMC"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="800"/>
+                    <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <outlet property="scrollView" destination="gN0-Yw-i7V" id="bgF-K9-sne"/>
                         <outlet property="tableView" destination="wEf-n6-XYL" id="diu-ba-T4Z"/>
@@ -213,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hF-ou-d8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2445.5" y="3"/>
+            <point key="canvasLocation" x="2460.5" y="225"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="NFS-6Q-cfl">

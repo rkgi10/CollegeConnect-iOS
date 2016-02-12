@@ -30,7 +30,7 @@ class NetworkingHelper {
         print("network helper initiaised")
     }
     
-    let base_url = "https://sheltered-fjord-8731.herokuapp.com/api/"
+    let base_url = "https://college-connect.herokuapp.com/api/"
     let dataHelper = DataHelper.sharedInstance
     
     
@@ -75,7 +75,62 @@ class NetworkingHelper {
     
     
     //MARK: Make a Sign-UP request
-    
+    func makeSignUpRequest(user : User, completionHandler : (message : String)->Void)
+    {
+        //1 - configuration before making a request
+        let signUpUrl = base_url + "user/reg"
+        let credentialData = "\(user.userName):\(user.password)".toBase64()
+        var messageToBeReturned = ""
+        
+        
+        //2 - configuring headers
+        let headers = ["Authorization" : "Basic \(credentialData)",
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
+        
+        
+        //3 - configuring parameters i.e. body of the request
+        let parameters = [
+            "name" : user.fullName!,
+            "rollno" : user.rollNo!,
+            "mobno" : user.mobileNumber!,
+            "hostelname" : user.hostelName!,
+            "hostel_or_local": String(user.hosteliteOrLocalite)
+        ]
+        
+        
+        //4- Actually making the request
+        Alamofire.request(.POST, signUpUrl, parameters: parameters, encoding: .JSON, headers: headers).responseJSON{
+            response in
+            
+            switch response.result {
+                
+            case .Success(let value) : let json = JSON(value)
+            
+            if let token = json["token"].string {
+                
+                //check if user is successfully saved or not and then proceed
+                messageToBeReturned = self.dataHelper.setUserInDefaults(user, withToken: token)
+                
+                }
+                else {
+                
+                //request was successful but returned some error message. handle it
+                debugPrint(response.result.value)
+                messageToBeReturned = JSON(response.result.value!)["message"].stringValue
+                
+                }
+                
+                
+            case .Failure(let error) : debugPrint(error)
+            //request was unsuccessful. either network error or server error
+            messageToBeReturned = "Failure"
+                
+            }
+         completionHandler(message: messageToBeReturned)
+        }
+        
+    }
     
     
     //MARK: Load events in background

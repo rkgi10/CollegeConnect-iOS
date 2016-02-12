@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //call this to decide which screen should be the initial view controller
         whichScreenWillBeFirstScreen()
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)){
+            [unowned self] in
+            self.networkingHelper.loadEventListInBackground()
+            }
+        
         
         
         

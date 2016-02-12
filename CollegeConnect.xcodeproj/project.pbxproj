@@ -27,6 +27,7 @@
 		45B6A6851C627DDF00F2C16C /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6A6841C627DDF00F2C16C /* UIImageColors.swift */; };
 		45CF3F0C1C6B56CA00883021 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF3F0B1C6B56CA00883021 /* DataModel.swift */; };
 		45DE74641C5B3D9700D25797 /* NoImageTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */; };
+		45F867341C6E8BB300888E1A /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F867321C6E8BB300888E1A /* SignUp.storyboard */; };
 		45F95E171C5B9C2B00355000 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */; };
 		8F04D44705D55524B83EC208 /* Pods_CollegeConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFE21CB6DC48275CA8CB574 /* Pods_CollegeConnect.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		45B6A6841C627DDF00F2C16C /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
 		45CF3F0B1C6B56CA00883021 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoImageTabbar.swift; sourceTree = "<group>"; };
+		45F867331C6E8BB300888E1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
 		45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		5486FE96B692B08157A28122 /* Pods-CollegeConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeConnect/Pods-CollegeConnect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				451373291C660AAF000A4958 /* Helper Classes */,
 				451373281C660A98000A4958 /* Custom Elements */,
 				453C668E1C57E8E000BBAC55 /* Main.storyboard */,
+				45F867321C6E8BB300888E1A /* SignUp.storyboard */,
 				4529E52F1C6DAA6B00DA7DFE /* EventsList.storyboard */,
 				451DBFB91C6A7EAD00640161 /* ClubsTab.storyboard */,
 				4513732A1C660ABC000A4958 /* Model */,
@@ -231,6 +234,7 @@
 			files = (
 				453C66951C57E8E000BBAC55 /* LaunchScreen.storyboard in Resources */,
 				453C66921C57E8E000BBAC55 /* Assets.xcassets in Resources */,
+				45F867341C6E8BB300888E1A /* SignUp.storyboard in Resources */,
 				451DBFBB1C6A7EAD00640161 /* ClubsTab.storyboard in Resources */,
 				453C66901C57E8E000BBAC55 /* Main.storyboard in Resources */,
 				4529E5311C6DAA6C00DA7DFE /* EventsList.storyboard in Resources */,
@@ -344,6 +348,14 @@
 				453C66941C57E8E000BBAC55 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		45F867321C6E8BB300888E1A /* SignUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45F867331C6E8BB300888E1A /* Base */,
+			);
+			name = SignUp.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
