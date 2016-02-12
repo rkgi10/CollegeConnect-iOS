@@ -18,7 +18,10 @@ class User : NSObject, NSCoding {
     var currentToken : String?
     var signedUpUsingApp : Bool?
     var isAdminOfAClub : Bool?
+    var fullName : String?
+    var mobileNumber : String?
     var clubIdsOfWhichUserIsAdmin : [Int] = []
+    var hosteliteOrLocalite : Bool?
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,6 +35,9 @@ class User : NSObject, NSCoding {
         signedUpUsingApp = aDecoder.decodeObjectForKey("signedUpUsingApp") as? Bool
         isAdminOfAClub = aDecoder.decodeObjectForKey("isAdminOfAClub") as? Bool
         clubIdsOfWhichUserIsAdmin = aDecoder.decodeObjectForKey("clubIdsOfWhichUserIsAdmin") as! [Int]
+        fullName = aDecoder.decodeObjectForKey("fullName") as? String
+        mobileNumber = aDecoder.decodeObjectForKey("mobileNumber") as? String
+        hosteliteOrLocalite = aDecoder.decodeObjectForKey("hosteliteOrLocalite") as? Bool
         
         super.init()
         
@@ -48,6 +54,9 @@ class User : NSObject, NSCoding {
         aCoder.encodeObject(signedUpUsingApp, forKey: "signedUpUsingApp")
         aCoder.encodeObject(isAdminOfAClub, forKey: "isAdminOfAClub")
         aCoder.encodeObject(clubIdsOfWhichUserIsAdmin, forKey: "clubIdsOfWhichUserIsAdmin")
+        aCoder.encodeObject(fullName, forKey: "fullName")
+        aCoder.encodeObject(mobileNumber, forKey: "mobileNumber")
+        aCoder.encodeObject(hosteliteOrLocalite, forKey: "hosteliteOrLocalite")
     }
     
     init(userName : String, password : String)

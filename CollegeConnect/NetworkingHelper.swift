@@ -34,6 +34,8 @@ class NetworkingHelper {
     let dataHelper = DataHelper.sharedInstance
     
     
+    
+    //MARK: make a sign in request
     func makeSignInRequest(userName : String, withPassword password : String, completionHandler : (message : String) ->Void) {
         let signInUrl = base_url + "user/token"
         let credentialData = "\(userName):\(password)".toBase64()
@@ -71,6 +73,12 @@ class NetworkingHelper {
        // return messageToBeReturned
     }
     
+    
+    //MARK: Make a Sign-UP request
+    
+    
+    
+    //MARK: Load events in background
     func loadEventListInBackground()
     {
         print("started bg loading")

@@ -13,6 +13,8 @@ class DataModel {
     
     var events : [Event] = []
     var user : User = User(userName: "Guest", password: "")
+    var colleges : [String] = ["Choose Your College","NIT-Surat","Other-College","Not a College Student"]
+    var SVNIThostels = ["Choose Your Hostel","Bhabha Bhavan","Gajjar Bhavan","Mother Teresa Bhavan","Sarabhai Bhavan","Tagore Bhavan","Nehru Bhavan","Raman Bhavan","Swami Vivekanand Bhavan"]
     
     init()
     {

@@ -8,5 +8,6 @@ pod 'Alamofire', '~> 3.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'CryptoSwift'
 pod 'Google/CloudMessaging'
+pod 'SwiftValidator', '3.0.1'
 end
 

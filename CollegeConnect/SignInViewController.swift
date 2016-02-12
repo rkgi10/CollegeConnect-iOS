@@ -33,7 +33,7 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadInBackground()
+        //loadInBackground()
         
         emailLabel.hidden = true
         passwordLabel.hidden = true
