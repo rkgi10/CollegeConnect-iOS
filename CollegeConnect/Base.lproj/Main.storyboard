@@ -279,10 +279,10 @@
             </objects>
             <point key="canvasLocation" x="842.5" y="-38.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tabbar View Controller-->
         <scene sceneID="cTo-4t-rvM">
             <objects>
-                <tabBarController storyboardIdentifier="HomeScreen" id="6ch-Kl-jm1" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeScreen" id="6ch-Kl-jm1" customClass="CustomTabbarViewController" customModule="CollegeConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="hDo-dU-9VQ" customClass="NoImageTabbar" customModule="CollegeConnect" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -293,6 +293,7 @@
                         <segue destination="cnI-4W-XNe" kind="relationship" relationship="viewControllers" id="5jd-Ix-y4p"/>
                         <segue destination="HcH-wH-Ana" kind="relationship" relationship="viewControllers" id="tUy-be-Ulw"/>
                         <segue destination="9hs-Fx-aRk" kind="relationship" relationship="viewControllers" id="j6f-wT-DrU"/>
+                        <segue destination="m1g-ky-OPf" kind="relationship" relationship="viewControllers" id="EHO-UK-Od8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Toi-TU-Jgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -309,6 +310,38 @@
             </objects>
             <point key="canvasLocation" x="1669.5" y="187"/>
         </scene>
+        <!--NOTICES-->
+        <scene sceneID="qgT-n8-G6c">
+            <objects>
+                <tableViewController id="m1g-ky-OPf" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2zs-ap-sPZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2Wk-f1-wrl">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Wk-f1-wrl" id="WjW-YE-iBT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="m1g-ky-OPf" id="Xng-W1-46t"/>
+                            <outlet property="delegate" destination="m1g-ky-OPf" id="Aym-NT-uzh"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="NOTICES" id="qN6-e8-h6J">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-8"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTW-gf-grt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788.5" y="690.5"/>
+        </scene>
         <!--PROFILE-->
         <scene sceneID="1kA-Lj-Mki">
             <objects>
@@ -323,7 +356,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="PROFILE" id="khw-qk-OuF">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-8"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>

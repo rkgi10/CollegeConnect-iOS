@@ -14,6 +14,8 @@
 		4513732E1C67258E000A4958 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513732D1C67258E000A4958 /* DataHelper.swift */; };
 		451DBFBB1C6A7EAD00640161 /* ClubsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 451DBFB91C6A7EAD00640161 /* ClubsTab.storyboard */; };
 		451DBFC11C6A878900640161 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451DBFC01C6A878900640161 /* EventDetailViewController.swift */; };
+		45234E4E1C6FE4CD00B8889E /* ImageViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45234E4D1C6FE4CD00B8889E /* ImageViewWithGradient.swift */; };
+		45234E501C6FE60100B8889E /* ClubsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45234E4F1C6FE60100B8889E /* ClubsListViewController.swift */; };
 		4529E5311C6DAA6C00DA7DFE /* EventsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4529E52F1C6DAA6B00DA7DFE /* EventsList.storyboard */; };
 		4529E5331C6DAEBC00DA7DFE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529E5321C6DAEBC00DA7DFE /* SignUpViewController.swift */; };
 		4532618E1C5A58E300F8BDB4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4532618D1C5A58E300F8BDB4 /* SignInViewController.swift */; };
@@ -23,6 +25,7 @@
 		453C66901C57E8E000BBAC55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453C668E1C57E8E000BBAC55 /* Main.storyboard */; };
 		453C66921C57E8E000BBAC55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453C66911C57E8E000BBAC55 /* Assets.xcassets */; };
 		453C66951C57E8E000BBAC55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453C66931C57E8E000BBAC55 /* LaunchScreen.storyboard */; };
+		453D5C071C6FCCE8000F5D77 /* CustomTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D5C061C6FCCE8000F5D77 /* CustomTabbarViewController.swift */; };
 		455EFA6A1C65F116008B3F28 /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EFA691C65F116008B3F28 /* NetworkingHelper.swift */; };
 		45B6A6851C627DDF00F2C16C /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6A6841C627DDF00F2C16C /* UIImageColors.swift */; };
 		45CF3F0C1C6B56CA00883021 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF3F0B1C6B56CA00883021 /* DataModel.swift */; };
@@ -42,6 +45,8 @@
 		4513732D1C67258E000A4958 /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		451DBFBA1C6A7EAD00640161 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ClubsTab.storyboard; sourceTree = "<group>"; };
 		451DBFC01C6A878900640161 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		45234E4D1C6FE4CD00B8889E /* ImageViewWithGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewWithGradient.swift; sourceTree = "<group>"; };
+		45234E4F1C6FE60100B8889E /* ClubsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsListViewController.swift; sourceTree = "<group>"; };
 		4529E5301C6DAA6B00DA7DFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventsList.storyboard; sourceTree = "<group>"; };
 		4529E5321C6DAEBC00DA7DFE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4532618D1C5A58E300F8BDB4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +58,7 @@
 		453C66911C57E8E000BBAC55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453C66941C57E8E000BBAC55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		453C66961C57E8E000BBAC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		453D5C061C6FCCE8000F5D77 /* CustomTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabbarViewController.swift; sourceTree = "<group>"; };
 		455EFA691C65F116008B3F28 /* NetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
 		45B6A6841C627DDF00F2C16C /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
 		45CF3F0B1C6B56CA00883021 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -91,6 +97,8 @@
 				4529E5321C6DAEBC00DA7DFE /* SignUpViewController.swift */,
 				451DBFC01C6A878900640161 /* EventDetailViewController.swift */,
 				4532618F1C5A956400F8BDB4 /* EventsHomeViewController.swift */,
+				453D5C061C6FCCE8000F5D77 /* CustomTabbarViewController.swift */,
+				45234E4F1C6FE60100B8889E /* ClubsListViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -99,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				45F95E161C5B9C2B00355000 /* CustomNavigationBar.swift */,
+				45234E4D1C6FE4CD00B8889E /* ImageViewWithGradient.swift */,
 				45069E011C5CC365000422EA /* EventHomeCell.swift */,
 				45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */,
 			);
@@ -296,8 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45234E501C6FE60100B8889E /* ClubsListViewController.swift in Sources */,
 				45069E041C5CD294000422EA /* Event.swift in Sources */,
 				4513732E1C67258E000A4958 /* DataHelper.swift in Sources */,
+				45234E4E1C6FE4CD00B8889E /* ImageViewWithGradient.swift in Sources */,
 				455EFA6A1C65F116008B3F28 /* NetworkingHelper.swift in Sources */,
 				45069E061C5CF43D000422EA /* SampleEventData.swift in Sources */,
 				45F95E171C5B9C2B00355000 /* CustomNavigationBar.swift in Sources */,
@@ -309,6 +320,7 @@
 				4529E5331C6DAEBC00DA7DFE /* SignUpViewController.swift in Sources */,
 				453261901C5A956400F8BDB4 /* EventsHomeViewController.swift in Sources */,
 				453C668B1C57E8E000BBAC55 /* AppDelegate.swift in Sources */,
+				453D5C071C6FCCE8000F5D77 /* CustomTabbarViewController.swift in Sources */,
 				451DBFC11C6A878900640161 /* EventDetailViewController.swift in Sources */,
 				45CF3F0C1C6B56CA00883021 /* DataModel.swift in Sources */,
 				45B6A6851C627DDF00F2C16C /* UIImageColors.swift in Sources */,

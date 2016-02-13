@@ -12,7 +12,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GcE-Kr-fKA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="EVENTS" id="HHd-LJ-y5C">
                         <inset key="imageInsets" minX="0.0" minY="62" maxX="0.0" maxY="0.0"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-8"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hF-ou-d8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460.5" y="225"/>
+            <point key="canvasLocation" x="2440.5" y="336"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="NFS-6Q-cfl">
