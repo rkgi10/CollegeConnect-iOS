@@ -1,0 +1,6 @@
+framework module Pods_CollegeConnect {
+  umbrella header "Pods-CollegeConnect-umbrella.h"
+
+  export *
+  module * { export * }
+}
