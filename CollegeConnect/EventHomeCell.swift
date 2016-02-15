@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class EventHomeCell : UITableViewCell {
     
@@ -29,7 +30,9 @@ class EventHomeCell : UITableViewCell {
             self.eventNameLabel.text = event.name
             self.eventTimeLabel.text = event.startDate
             self.eventVenueLabel.text = event.venue
-            self.eventImageView.image = event.imageOfEvent
+            
+            //downloading and caching the image with kingfisher.Yay!
+            self.eventImageView.kf_setImageWithURL(NSURL(string: event.imageRemoteUrl!)!, placeholderImage: UIImage(named: "pholder"))
             
             self.eventImageView.contentMode = .ScaleAspectFill
             

@@ -265,10 +265,6 @@ class SignInViewController: UIViewController , UITextFieldDelegate {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func loadInBackground()
-    {
-        networkingHelper.loadEventListInBackground()
-    }
   
     /*
     // MARK: - Navigation

@@ -33,12 +33,13 @@ class NetworkingHelper {
     let base_url = "https://college-connect.herokuapp.com/api/"
     let base_url2 = "https://sheltered-fjord-8731.herokuapp.com/api/"
     let dataHelper = DataHelper.sharedInstance
+    let data = DataModel.sharedInstance
     
     
     
     //MARK: make a sign in request
     func makeSignInRequest(userName : String, withPassword password : String, completionHandler : (message : String) ->Void) {
-        let signInUrl = base_url + "user/token"
+        let signInUrl = base_url2 + "user/token"
         let credentialData = "\(userName):\(password)".toBase64()
         var messageToBeReturned = ""
         
@@ -79,7 +80,7 @@ class NetworkingHelper {
     func makeSignUpRequest(user : User, completionHandler : (message : String)->Void)
     {
         //1 - configuration before making a request
-        let signUpUrl = base_url + "user/reg"
+        let signUpUrl = base_url2 + "user/reg"
         let credentialData = "\(user.userName):\(user.password)".toBase64()
         var messageToBeReturned = ""
         
@@ -139,9 +140,14 @@ class NetworkingHelper {
     {
         var messageToBeReturned = ""
         print("started bg events loading")
-        let loadEventsUrl = base_url + "events"
+        let loadEventsUrl = base_url2 + "events"
+        let credentialData = "\(data.user.userName):\(data.user.password)".toBase64()
+        
+        let headers = ["Authorization" : "Basic \(credentialData)",
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
 
-        Alamofire.request(.GET, loadEventsUrl).responseJSON{
+        Alamofire.request(.GET, loadEventsUrl, parameters: nil, encoding: .JSON, headers: headers).responseJSON{
             response in
             
             debugPrint(response.result)
@@ -181,7 +187,7 @@ class NetworkingHelper {
                 messageToBeReturned = self.dataHelper.saveClubsModel(clubs)
                 
             case .Failure(let error) : debugPrint(error.code)
-                messageToBeReturned = "Failure"
+                messageToBeReturned = String(error.code)
                 
             default : messageToBeReturned = "Failure"
             }

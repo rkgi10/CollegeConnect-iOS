@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EventDetailViewController: UITableViewController {
     
@@ -25,7 +26,7 @@ class EventDetailViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventImageView.image = event.imageOfEvent
+        eventImageView.kf_setImageWithURL(NSURL(string: event.imageRemoteUrl!)!, placeholderImage: UIImage(named: "pholder"))
         setupRowsForTableView()
         
         if let image = event.imageOfEvent {

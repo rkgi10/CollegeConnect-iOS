@@ -30,13 +30,13 @@ class DataModel {
     func saveData()
     {
         saveClubs()
-       // saveEvents()
+        saveEvents()
     }
     
     func loadData()
     {
         loadUser()
-       // loadEvents()
+        loadEvents()
         loadClubs()
     }
     

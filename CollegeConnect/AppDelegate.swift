@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var dataModel = DataModel.sharedInstance
     var networkingHelper = NetworkingHelper.sharedInstance
+    var isUpdatingEvents = true
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -25,7 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //load events in background
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)){
             [unowned self] in
-            self.networkingHelper.loadEventListInBackground()
+            self.networkingHelper.loadEventListInBackground{
+                message in
+                
+                if message == "Success" {
+                    NSNotificationCenter.defaultCenter().postNotificationName("EventsDownloadedNotification", object: nil)
+                }
+                else
+                {
+                    NSNotificationCenter.defaultCenter().postNotificationName("EventsDownloadFailedNotification", object: nil)
+                }
+                
+                
+                
+            }
             }
         
         

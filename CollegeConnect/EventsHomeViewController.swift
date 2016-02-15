@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     
@@ -14,8 +15,13 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     
-    var events = sampleeventData
-    var pageImages : [UIImage] = []
+    let data = DataModel.sharedInstance
+    let network = NetworkingHelper.sharedInstance
+    var nothingFound : Bool = true
+    var cellId = "NoEventFoundCell"
+    
+    
+    var pageImages : [String] = []
     var pageViews : [UIImageView?] = []
     var pageCount = 0
 
@@ -28,6 +34,10 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         setImagesForScrollView()
         setViewsInScrollView()
         loadVisiblePages()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableViewWithUpdatedData", name: "EventsDownloadedNotification", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadEventsInBackground", name: "EventsDownloadFailedNotification", object: nil)
         
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
@@ -42,6 +52,12 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         //un-hiding the tab bar
         self.tabBarController?.tabBar.hidden = false
         self.navigationController?.navigationBar.hidden = false
+        
+        
+        //checking for updates agressively
+        delay(30.0){
+            self.loadEventsInBackground()
+        }
 
     }
 
@@ -53,7 +69,7 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowEventDetail" {
             let vc = segue.destinationViewController as! EventDetailViewController
-            vc.event = events[(sender?.row)!]
+            vc.event = data.events[(sender?.row)!]
         }
     }
     
@@ -68,9 +84,18 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     
     func setImagesForScrollView()
     {
-        pageImages = [UIImage(named: "scroll1")!,
-            UIImage(named: "scroll2")!,
-            UIImage(named: "scroll3")!,UIImage(named: "scroll4")!]
+        if nothingFound{
+            pageImages = ["pholder","pholder","pholder","pholder"]
+        }
+        else
+        {
+            for i in 0...3 {
+                if let imgName = data.events[i].imageRemoteUrl {
+                    pageImages[i] = imgName
+                }
+            }
+        }
+        
         pageCount = pageImages.count
     }
     
@@ -98,7 +123,14 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
             frame.origin.x = frame.size.width * CGFloat(page)
             frame.origin.y = 0.0
             
-            let newPageView = UIImageView(image: pageImages[page])
+            let newPageView = UIImageView()
+            if nothingFound {
+                newPageView.image = UIImage(named: pageImages[page])
+            }
+            else
+            {
+                newPageView.kf_setImageWithURL(NSURL(string: pageImages[page])!, placeholderImage: UIImage(named: "pholder"))
+            }
             newPageView.contentMode = .ScaleAspectFill
             newPageView.frame = frame
             scrollView.addSubview(newPageView)
@@ -159,6 +191,37 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    func loadEventsInBackground() {
+        network.loadEventListInBackground{
+            message in
+            
+            if message == "Success" {
+                self.reloadTableViewWithUpdatedData()
+                self.nothingFound = false
+            }
+            else
+            {
+                self.loadEventsInBackground()
+            }
+        }
+    }
+    
+    func reloadTableViewWithUpdatedData() {
+        tableView.reloadData()
+    }
+    
+    func showErrorWithMessage(message : String) {
+        
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
     
 
     /*
@@ -177,17 +240,39 @@ extension EventsHomeViewController : UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        
+        if data.events.count == 0 {
+            nothingFound = true
+            cellId = "NoEventFoundCell"
+            return 1
+        }
+        else
+        {
+            nothingFound = false
+            cellId = "EventHomeCell"
+            return data.events.count
+        }
         
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("EventHomeCell", forIndexPath: indexPath) as! EventHomeCell
-        cell.event = events[indexPath.row]
         
-        return cell
+        
+        if nothingFound {
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath)
+            return cell
+        }
+        else
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! EventHomeCell
+            cell.event = data.events[indexPath.row]
+            return cell
+        }
+        
+        
+        
         
     }
     
