@@ -27,7 +27,7 @@
                                             <segue destination="Hzx-Me-xNY" kind="unwind" unwindAction="closeToFirstViewController:" id="pN3-BV-nA3"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Adress" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="myU-uL-9sG">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Adress" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="myU-uL-9sG">
                                         <rect key="frame" x="30" y="72" width="315" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
@@ -35,7 +35,7 @@
                                             <outlet property="delegate" destination="2e2-0t-ecp" id="Aa6-fD-Z8y"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6Ly-Jn-jNM">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6Ly-Jn-jNM">
                                         <rect key="frame" x="30" y="143" width="315" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
@@ -43,7 +43,7 @@
                                             <outlet property="delegate" destination="2e2-0t-ecp" id="D7b-wK-zOB"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QWW-UH-x2d">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QWW-UH-x2d">
                                         <rect key="frame" x="30" y="214" width="315" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -51,7 +51,7 @@
                                             <outlet property="delegate" destination="2e2-0t-ecp" id="XUB-4N-rbC"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number (Optional)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsb-vH-8No">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number (Optional)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsb-vH-8No">
                                         <rect key="frame" x="30" y="285" width="315" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -59,14 +59,14 @@
                                             <outlet property="delegate" destination="2e2-0t-ecp" id="BgC-2U-PmL"/>
                                         </connections>
                                     </textField>
-                                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQw-3J-sWE">
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQw-3J-sWE">
                                         <rect key="frame" x="50" y="316" width="275" height="216"/>
                                         <connections>
                                             <outlet property="dataSource" destination="2e2-0t-ecp" id="UMy-3p-3gU"/>
                                             <outlet property="delegate" destination="2e2-0t-ecp" id="NZw-ev-2Th"/>
                                         </connections>
                                     </pickerView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Roll Number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bxH-rd-mbk">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Roll Number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bxH-rd-mbk">
                                         <rect key="frame" x="30" y="542" width="315" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -74,7 +74,7 @@
                                             <outlet property="delegate" destination="2e2-0t-ecp" id="w0a-KF-eup"/>
                                         </connections>
                                     </textField>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XAS-PX-1aQ">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XAS-PX-1aQ">
                                         <rect key="frame" x="30" y="593" width="315" height="29"/>
                                         <segments>
                                             <segment title="Hostelite"/>
@@ -85,7 +85,7 @@
                                             <action selector="didChooseHosteliteOrLocalite:" destination="2e2-0t-ecp" eventType="valueChanged" id="nsr-2w-xcF"/>
                                         </connections>
                                     </segmentedControl>
-                                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gKZ-Tc-uDl">
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKZ-Tc-uDl">
                                         <rect key="frame" x="50" y="631" width="275" height="216"/>
                                         <connections>
                                             <outlet property="dataSource" destination="2e2-0t-ecp" id="C5E-fT-OZy"/>

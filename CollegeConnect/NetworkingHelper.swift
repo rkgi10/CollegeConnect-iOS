@@ -31,6 +31,7 @@ class NetworkingHelper {
     }
     
     let base_url = "https://college-connect.herokuapp.com/api/"
+    let base_url2 = "https://sheltered-fjord-8731.herokuapp.com/api/"
     let dataHelper = DataHelper.sharedInstance
     
     
@@ -134,24 +135,57 @@ class NetworkingHelper {
     
     
     //MARK: Load events in background
-    func loadEventListInBackground()
+    func loadEventListInBackground(completionHandler : (message : String)->Void)
     {
-        print("started bg loading")
+        var messageToBeReturned = ""
+        print("started bg events loading")
         let loadEventsUrl = base_url + "events"
+
         Alamofire.request(.GET, loadEventsUrl).responseJSON{
             response in
             
             debugPrint(response.result)
            
             switch response.result {
-            case .Success(let value) : let json = JSON(value)
-            let events = json["events"]
-            self.dataHelper.saveEventModel(events)
+            case .Success(let value) :
+                let json = JSON(value)
+                let events = json["events"]
+                messageToBeReturned = self.dataHelper.saveEventModel(events)
+                
+            case .Failure(let error) :
+                debugPrint(error.code)
+                messageToBeReturned = "Failure"
             
-            default : print("bg failure")
+            default : print("bg events failure")
                 
                 
             }
+        }
+    }
+    
+    //MARK: load clubs info 
+    func loadClubsInfo(completionHandler : (message : String)->Void)
+    {
+        var messageToBeReturned = ""
+        let loadClubsUrl = base_url2 + "clubs/list"
+        
+        Alamofire.request(.GET, loadClubsUrl).responseJSON{
+            response in
+            
+            
+            switch response.result {
+                
+            case .Success(let value) :
+                let json = JSON(value)
+                let clubs = json["clubs"]
+                messageToBeReturned = self.dataHelper.saveClubsModel(clubs)
+                
+            case .Failure(let error) : debugPrint(error.code)
+                messageToBeReturned = "Failure"
+                
+            default : messageToBeReturned = "Failure"
+            }
+            completionHandler(message: messageToBeReturned)
         }
     }
     

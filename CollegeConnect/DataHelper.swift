@@ -87,52 +87,90 @@ class DataHelper {
         }
         
         
-        debugPrint("Data saved")
+        debugPrint("User saved")
         return "Success"
     }
 
-    
-    
-    
-    
-    
-    func saveEventModel(events : JSON)
-    {
-        if let eventsArray = events.array {
-        print(eventsArray.count)
-            var i = 0
-        for event in eventsArray {
-            i++
-            print(i)
-//            let newEvent = Event(name: event["name"].stringValue)
-//            newEvent.clubName = event["clubname"].stringValue
-//            newEvent.startDate = event["sdt"].stringValue
-//            newEvent.lastregtime = event["lrt"].stringValue
-//            newEvent.clubId = event["club_id"].intValue
-//            newEvent.verified = event["verified"].boolValue
-//            newEvent.aboutEvent = event["about"].stringValue
-//            newEvent.endDate = event["edt"].stringValue
-//            newEvent.totalSeats = event["total_seats"].intValue
-//           //TODO : figure out what this created by is
-//            //newEvent.cretedby
-//            newEvent.prize[0] = event["prize"].intValue
-//            newEvent.fees = event["fees"].intValue
-//            newEvent.contacts = [[ event["contacts"][0]["name"].stringValue, String(event["contacts"][0]["mobno"].intValue) ],[event["contacts"][1]["name"].stringValue, String(event["contacts"][1]["mobno"].intValue)]]
-//            newEvent.venue = event["venue"].stringValue
-//            newEvent.linkOfImageOfEvent = event["image"].stringValue
-//            newEvent.availableSeats = event["available_seats"].intValue
-//            newEvent.eventId = event["event_id"].intValue
-//            
-//            dataModel.events.append(newEvent)
-            
+    //MARK: Saving clubs info
+    func saveClubsModel(clubs : JSON)->String {
+        var clubsModel : [Club] = []
+        
+        if let clubsArray = clubs.array {
+
+            for club in clubsArray {
+                let newClub = Club(name: club["name"].stringValue)
+                newClub.about = club["about"].stringValue
+                newClub.id = club["club_id"].intValue
+                let clubAdmins = club["admins"].arrayValue
+                
+                for value in clubAdmins {
+                    let adminName = value["name"].stringValue
+                    let adminNumber = value["mobno"].stringValue
+                    let adminArray = [adminName , adminNumber]
+                    newClub.admins.append(adminArray)
+                }
+                newClub.imageRemoteUrl = club["image"].stringValue
+                
+                //finally add the club to clubmodel
+                clubsModel.append(newClub)
+            }
         }
+        dataModel.clubs = clubsModel
+        dataModel.saveClubs()
+        debugPrint("Clubs Saved")
+        return "Success"
     }
-    dataModel.saveEvents()
+    
+    
+    
+    
+    func saveEventModel(events : JSON)->String
+    {
+        var eventsModel : [Event] = []
+        var truefalsedict = ["True" : true, "False" : false]
+        
+        if let eventsArray = events.array {
+            
+            for event in eventsArray {
+                let newEvent = Event(name: event["name"].stringValue)
+                newEvent.clubName = event["clubname"].stringValue
+                newEvent.startDate = event["sdt"].stringValue
+                newEvent.lastregtime = event["lrt"].stringValue
+                newEvent.clubId = event["club_id"].intValue
+                newEvent.aboutEvent = event["about"].stringValue
+                newEvent.verified = truefalsedict[event["verified"].stringValue]
+                newEvent.endDate = event["edt"].stringValue
+                newEvent.fees = event["fees"].intValue
+                newEvent.creatorId = event["createdby"].intValue
+                newEvent.imageRemoteUrl = event["image"].stringValue
+                newEvent.prize = [event["prize"].intValue]
+                newEvent.venue = event["venue"].stringValue
+                
+                let contactsArray = event["contacts"].arrayValue
+                for contact in contactsArray {
+                    let contactName = contact["name"].stringValue
+                    let contactNumber = contact["mobno"].stringValue
+                    let newContact = [contactName, contactNumber]
+                    newEvent.contacts.append(newContact)
+                }
+                
+                newEvent.availableSeats = event["available_seats"].intValue
+                newEvent.totalSeats = event["total_seats"].intValue
+                newEvent.eventId = event["event_id"].intValue
+                
+                eventsModel.append(newEvent)
+            }
+            dataModel.events = eventsModel
+            dataModel.saveEvents()
+            return "Success"
+        }
+        
+        debugPrint("event array not found. Probably system error")
+        return "Failure"
     }
     
     
-    
-    
+
     
     
     

@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //call this to decide which screen should be the initial view controller
         whichScreenWillBeFirstScreen()
+        
+        //load events in background
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)){
             [unowned self] in
             self.networkingHelper.loadEventListInBackground()
@@ -38,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
+        dataModel.saveData()
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -51,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
+        dataModel.saveData()
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     

@@ -27,12 +27,15 @@ class Event :NSObject, NSCoding {
     //var occupiedSeats : Int?
     var lastregtime : String?
     var imageOfEvent : UIImage?
+    var imageRemoteUrl : String?
+    var imageLocalUrl : String?
     var verified : Bool?
     var eventColors : UIImageColors?
     var linkOfImageOfEvent : String?
     var prize : [Int] = []
     var fees : Int?
     var availableSeats : Int?
+    var creatorId : Int?
     
     required init?(coder aDecoder: NSCoder) {
         clubName = aDecoder.decodeObjectForKey("clubName") as? String
@@ -53,6 +56,11 @@ class Event :NSObject, NSCoding {
         verified = aDecoder.decodeObjectForKey("verified") as? Bool
        // eventColors = aDecoder.decodeObjectForKey("eventColors") as? UIImageColors
         linkOfImageOfEvent = aDecoder.decodeObjectForKey("linkOfImageOfEvent") as? String
+        imageRemoteUrl = aDecoder.decodeObjectForKey("imageRemoteUrl") as? String
+        imageLocalUrl = aDecoder.decodeObjectForKey("imageLocalUrl") as? String
+        creatorId = aDecoder.decodeObjectForKey("creatorId") as? Int
+        
+        super.init()
         
     }
     
@@ -75,6 +83,9 @@ class Event :NSObject, NSCoding {
         aCoder.encodeObject(verified, forKey: "verified")
         //aCoder.encodeObject(eventColors, forKey: "")
         aCoder.encodeObject(linkOfImageOfEvent, forKey: "linkOfImageOfEvent")
+        aCoder.encodeObject(imageRemoteUrl, forKey: "imageRemoteUrl")
+        aCoder.encodeObject(imageLocalUrl, forKey: "imageLocalUrl")
+        aCoder.encodeObject(creatorId, forKey: "creatorId")
     }
     
     init(name : String , aboutEvent : String, contacts : [[String]], startDate : String, endDate : String, venue : String, clubId : Int)

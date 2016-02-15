@@ -16,6 +16,7 @@
 		451DBFC11C6A878900640161 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451DBFC01C6A878900640161 /* EventDetailViewController.swift */; };
 		45234E4E1C6FE4CD00B8889E /* ImageViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45234E4D1C6FE4CD00B8889E /* ImageViewWithGradient.swift */; };
 		45234E501C6FE60100B8889E /* ClubsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45234E4F1C6FE60100B8889E /* ClubsListViewController.swift */; };
+		45234E521C6FE6A100B8889E /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45234E511C6FE6A100B8889E /* Club.swift */; };
 		4529E5311C6DAA6C00DA7DFE /* EventsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4529E52F1C6DAA6B00DA7DFE /* EventsList.storyboard */; };
 		4529E5331C6DAEBC00DA7DFE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529E5321C6DAEBC00DA7DFE /* SignUpViewController.swift */; };
 		4532618E1C5A58E300F8BDB4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4532618D1C5A58E300F8BDB4 /* SignInViewController.swift */; };
@@ -47,6 +48,7 @@
 		451DBFC01C6A878900640161 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		45234E4D1C6FE4CD00B8889E /* ImageViewWithGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewWithGradient.swift; sourceTree = "<group>"; };
 		45234E4F1C6FE60100B8889E /* ClubsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsListViewController.swift; sourceTree = "<group>"; };
+		45234E511C6FE6A100B8889E /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		4529E5301C6DAA6B00DA7DFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventsList.storyboard; sourceTree = "<group>"; };
 		4529E5321C6DAEBC00DA7DFE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4532618D1C5A58E300F8BDB4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				45069E031C5CD294000422EA /* Event.swift */,
+				45234E511C6FE6A100B8889E /* Club.swift */,
 				45CF3F0B1C6B56CA00883021 /* DataModel.swift */,
 				4513732B1C6611B2000A4958 /* User.swift */,
 				45069E051C5CF43D000422EA /* SampleEventData.swift */,
@@ -312,6 +315,7 @@
 				455EFA6A1C65F116008B3F28 /* NetworkingHelper.swift in Sources */,
 				45069E061C5CF43D000422EA /* SampleEventData.swift in Sources */,
 				45F95E171C5B9C2B00355000 /* CustomNavigationBar.swift in Sources */,
+				45234E521C6FE6A100B8889E /* Club.swift in Sources */,
 				45069E021C5CC365000422EA /* EventHomeCell.swift in Sources */,
 				4532618E1C5A58E300F8BDB4 /* SignInViewController.swift in Sources */,
 				45DE74641C5B3D9700D25797 /* NoImageTabbar.swift in Sources */,
