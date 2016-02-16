@@ -28,6 +28,7 @@
 		453C66951C57E8E000BBAC55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453C66931C57E8E000BBAC55 /* LaunchScreen.storyboard */; };
 		453D5C071C6FCCE8000F5D77 /* CustomTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D5C061C6FCCE8000F5D77 /* CustomTabbarViewController.swift */; };
 		455EFA6A1C65F116008B3F28 /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EFA691C65F116008B3F28 /* NetworkingHelper.swift */; };
+		4576BEE91C73C18100EDCFEA /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4576BEE71C73C18100EDCFEA /* CreateEvent.storyboard */; };
 		45B6A6851C627DDF00F2C16C /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6A6841C627DDF00F2C16C /* UIImageColors.swift */; };
 		45CF3F0C1C6B56CA00883021 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF3F0B1C6B56CA00883021 /* DataModel.swift */; };
 		45DE74641C5B3D9700D25797 /* NoImageTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */; };
@@ -62,6 +63,7 @@
 		453C66961C57E8E000BBAC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453D5C061C6FCCE8000F5D77 /* CustomTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabbarViewController.swift; sourceTree = "<group>"; };
 		455EFA691C65F116008B3F28 /* NetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
+		4576BEE81C73C18100EDCFEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateEvent.storyboard; sourceTree = "<group>"; };
 		45B6A6841C627DDF00F2C16C /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
 		45CF3F0B1C6B56CA00883021 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		45DE74631C5B3D9700D25797 /* NoImageTabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoImageTabbar.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				451373291C660AAF000A4958 /* Helper Classes */,
 				451373281C660A98000A4958 /* Custom Elements */,
 				453C668E1C57E8E000BBAC55 /* Main.storyboard */,
+				4576BEE71C73C18100EDCFEA /* CreateEvent.storyboard */,
 				45F867321C6E8BB300888E1A /* SignUp.storyboard */,
 				4529E52F1C6DAA6B00DA7DFE /* EventsList.storyboard */,
 				451DBFB91C6A7EAD00640161 /* ClubsTab.storyboard */,
@@ -247,6 +250,7 @@
 				453C66951C57E8E000BBAC55 /* LaunchScreen.storyboard in Resources */,
 				453C66921C57E8E000BBAC55 /* Assets.xcassets in Resources */,
 				45F867341C6E8BB300888E1A /* SignUp.storyboard in Resources */,
+				4576BEE91C73C18100EDCFEA /* CreateEvent.storyboard in Resources */,
 				451DBFBB1C6A7EAD00640161 /* ClubsTab.storyboard in Resources */,
 				453C66901C57E8E000BBAC55 /* Main.storyboard in Resources */,
 				4529E5311C6DAA6C00DA7DFE /* EventsList.storyboard in Resources */,
@@ -364,6 +368,14 @@
 				453C66941C57E8E000BBAC55 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4576BEE71C73C18100EDCFEA /* CreateEvent.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4576BEE81C73C18100EDCFEA /* Base */,
+			);
+			name = CreateEvent.storyboard;
 			sourceTree = "<group>";
 		};
 		45F867321C6E8BB300888E1A /* SignUp.storyboard */ = {

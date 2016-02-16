@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="CKm-z7-Wd2">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="CKm-z7-Wd2">
                                 <rect key="frame" x="130" y="150" width="115" height="125"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO COLLEGE CONNECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeL-BZ-nDI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WELCOME TO COLLEGE CONNECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeL-BZ-nDI">
                                 <rect key="frame" x="77" y="345" width="220" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,7 +43,7 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="vNV-Bu-vSR">
                                 <rect key="frame" x="0.0" y="0.0" width="39" height="37"/>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stay connected to your college, at all times" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L45-qU-sVi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Stay connected to your college, at all times" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L45-qU-sVi">
                                 <rect key="frame" x="51" y="371" width="274" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,9 +291,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="cnI-4W-XNe" kind="relationship" relationship="viewControllers" id="5jd-Ix-y4p"/>
+                        <segue destination="m1g-ky-OPf" kind="relationship" relationship="viewControllers" id="EHO-UK-Od8"/>
                         <segue destination="HcH-wH-Ana" kind="relationship" relationship="viewControllers" id="tUy-be-Ulw"/>
                         <segue destination="9hs-Fx-aRk" kind="relationship" relationship="viewControllers" id="j6f-wT-DrU"/>
-                        <segue destination="m1g-ky-OPf" kind="relationship" relationship="viewControllers" id="EHO-UK-Od8"/>
+                        <segue destination="lor-92-C2N" kind="presentation" identifier="ShowCreateEventScreen" id="aBv-nh-AYy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Toi-TU-Jgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,7 +311,7 @@
             </objects>
             <point key="canvasLocation" x="1669.5" y="187"/>
         </scene>
-        <!--NOTICES-->
+        <!--SPARSH-->
         <scene sceneID="qgT-n8-G6c">
             <objects>
                 <tableViewController id="m1g-ky-OPf" sceneMemberID="viewController">
@@ -333,14 +334,14 @@
                             <outlet property="delegate" destination="m1g-ky-OPf" id="Aym-NT-uzh"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="NOTICES" id="qN6-e8-h6J">
+                    <tabBarItem key="tabBarItem" title="SPARSH" id="qN6-e8-h6J">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-8"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTW-gf-grt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694.5" y="704.5"/>
+            <point key="canvasLocation" x="1708.5" y="798.5"/>
         </scene>
         <!--PROFILE-->
         <scene sceneID="1kA-Lj-Mki">
@@ -381,6 +382,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Cz-y9-3kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="824.5" y="1055"/>
+        </scene>
+        <!--CreateEvent-->
+        <scene sceneID="gZi-VD-fqX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateEvent" id="lor-92-C2N" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3yj-Sg-PJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1232.5" y="798.5"/>
         </scene>
     </scenes>
     <resources>

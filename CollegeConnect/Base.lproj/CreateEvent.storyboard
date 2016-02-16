@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BDg-Uv-crw">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gtL-ag-LQp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mzc-Uh-qXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="cof-Kl-SOk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1jH-Wz-hDR"/>
+                        <viewControllerLayoutGuide type="bottom" id="v5m-9R-guf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7N1-bV-vbG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dt9-cZ-aQK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Adress" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JEB-tM-EHt">
+                                        <rect key="frame" x="30" y="86" width="315" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dt9-cZ-aQK" firstAttribute="top" secondItem="1jH-Wz-hDR" secondAttribute="bottom" id="QqJ-Zm-d3a"/>
+                            <constraint firstItem="v5m-9R-guf" firstAttribute="top" secondItem="dt9-cZ-aQK" secondAttribute="bottom" id="RXg-HJ-Lje"/>
+                            <constraint firstAttribute="trailing" secondItem="dt9-cZ-aQK" secondAttribute="trailing" id="oZB-bT-dWs"/>
+                            <constraint firstItem="dt9-cZ-aQK" firstAttribute="leading" secondItem="7N1-bV-vbG" secondAttribute="leading" id="yYM-3f-Zy3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zaf-DZ-PY7"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1696.5" y="802.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Dst-Vn-UJT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BDg-Uv-crw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VV8-ea-SAD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cof-Kl-SOk" kind="relationship" relationship="rootViewController" id="Pbi-Py-tui"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWV-Od-NFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1232" y="798"/>
+        </scene>
+    </scenes>
+</document>
