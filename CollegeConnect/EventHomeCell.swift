@@ -17,7 +17,7 @@ class EventHomeCell : UITableViewCell {
     @IBOutlet weak var eventNameLabel : UILabel!
     @IBOutlet weak var eventTimeLabel : UILabel!
     @IBOutlet weak var eventVenueLabel : UILabel!
-    @IBOutlet weak var eventImageView : UIImageView!
+    @IBOutlet weak var eventImageView : ImageViewWithGradient!
     @IBOutlet weak var viewBehindClubName: UIView!
     @IBOutlet weak var bottomView: UIView!
     
@@ -26,15 +26,21 @@ class EventHomeCell : UITableViewCell {
     
     var event : Event! {
         didSet {
-            self.clubNameLabel.text = event.clubName
-            self.eventNameLabel.text = event.name
-            self.eventTimeLabel.text = event.startDate
-            self.eventVenueLabel.text = event.venue
+            self.clubNameLabel.text = event.clubName?.capitalizedString
+            self.eventNameLabel.text = event.name.capitalizedString
+            
+            let dateformatter = NSDateFormatter()
+            dateformatter.dateStyle = .MediumStyle
+            dateformatter.dateFormat = "dd-MM-yy H:mm a"
+            self.eventTimeLabel.text = dateformatter.stringFromDate(event.timeanddate!)
+            
+            self.eventVenueLabel.text = event.venue.capitalizedString
             
             //downloading and caching the image with kingfisher.Yay!
             self.eventImageView.kf_setImageWithURL(NSURL(string: event.imageRemoteUrl!)!, placeholderImage: UIImage(named: "pholder"))
             
             self.eventImageView.contentMode = .ScaleAspectFill
+            self.eventImageView.clipsToBounds = true
             
             
             eventImageView.alpha = 1.0

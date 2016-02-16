@@ -15,6 +15,10 @@ class CustomTabbarViewController: UITabBarController {
         self.addRaisedButton(34.0, width: 34.0, color: UIColor.blackColor(), text: "+")
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.view.viewWithTag(200)?.removeFromSuperview()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,6 +72,7 @@ class CustomTabbarViewController: UITabBarController {
         }
         
         button.addTarget(self, action: "onRaisedButton:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.tag = 200
         self.view.addSubview(button)
     }
     

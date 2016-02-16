@@ -134,12 +134,12 @@ class DataHelper {
             for event in eventsArray {
                 let newEvent = Event(name: event["name"].stringValue)
                 newEvent.clubName = event["clubname"].stringValue
-                newEvent.startDate = event["sdt"].stringValue
+                newEvent.startDate = event["sdt"].doubleValue
                 newEvent.lastregtime = event["lrt"].stringValue
                 newEvent.clubId = event["club_id"].intValue
                 newEvent.aboutEvent = event["about"].stringValue
                 newEvent.verified = truefalsedict[event["verified"].stringValue]
-                newEvent.endDate = event["edt"].stringValue
+                newEvent.endDate = event["edt"].doubleValue
                 newEvent.fees = event["fees"].intValue
                 newEvent.creatorId = event["createdby"].intValue
                 newEvent.imageRemoteUrl = event["image"].stringValue

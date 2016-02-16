@@ -17,8 +17,12 @@ class Event :NSObject, NSCoding {
     var eventId : Int?
     var name : String!
     var timeanddate : NSDate?
-    var startDate : String?
-    var endDate : String?
+    var startDate : Double?{
+        didSet{
+            self.timeanddate = NSDate(timeIntervalSince1970: startDate!)
+        }
+    }
+    var endDate : Double?
     var aboutEvent : String?
     var contacts : [[String]] = []
     var venue : String!
@@ -43,8 +47,8 @@ class Event :NSObject, NSCoding {
         eventId = aDecoder.decodeObjectForKey("eventId") as? Int
         name = aDecoder.decodeObjectForKey("name") as! String
         timeanddate = aDecoder.decodeObjectForKey("timeanddate") as? NSDate
-        startDate = aDecoder.decodeObjectForKey("startDate") as? String
-        endDate = aDecoder.decodeObjectForKey("endDate") as? String
+        startDate = aDecoder.decodeObjectForKey("startDate") as? Double
+        endDate = aDecoder.decodeObjectForKey("endDate") as? Double
         aboutEvent = aDecoder.decodeObjectForKey("aboutEvent") as? String
         contacts = aDecoder.decodeObjectForKey("contacts") as! [[String]]
         venue = aDecoder.decodeObjectForKey("venue") as! String
@@ -88,7 +92,7 @@ class Event :NSObject, NSCoding {
         aCoder.encodeObject(creatorId, forKey: "creatorId")
     }
     
-    init(name : String , aboutEvent : String, contacts : [[String]], startDate : String, endDate : String, venue : String, clubId : Int)
+    init(name : String , aboutEvent : String, contacts : [[String]], startDate : Double, endDate : Double, venue : String, clubId : Int)
     {
         self.name = name
         self.aboutEvent = aboutEvent
@@ -100,7 +104,7 @@ class Event :NSObject, NSCoding {
         self.clubName = clubIdDict[clubId]
     }
     
-    init(name : String , aboutEvent : String, contacts : [[String]], startDate : String, endDate : String, venue : String, clubId : Int, imageOfEvent : String)
+    init(name : String , aboutEvent : String, contacts : [[String]], startDate : Double, endDate : Double, venue : String, clubId : Int, imageOfEvent : String)
     {
         self.name = name
         self.aboutEvent = aboutEvent
@@ -113,7 +117,7 @@ class Event :NSObject, NSCoding {
         self.imageOfEvent = UIImage(named: imageOfEvent)
     }
     
-    init(name : String , aboutEvent : String, contacts : [[String]], startDate : String, endDate : String, venue : String, clubName : String, imageOfEvent : String)
+    init(name : String , aboutEvent : String, contacts : [[String]], startDate : Double, endDate : Double, venue : String, clubName : String, imageOfEvent : String)
     {
         self.name = name
         self.aboutEvent = aboutEvent

@@ -150,7 +150,7 @@ class NetworkingHelper {
         Alamofire.request(.GET, loadEventsUrl, parameters: nil, encoding: .JSON, headers: headers).responseJSON{
             response in
             
-            debugPrint(response.result)
+           // debugPrint(response.result)
            
             switch response.result {
             case .Success(let value) :

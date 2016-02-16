@@ -17,7 +17,13 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     
     let data = DataModel.sharedInstance
     let network = NetworkingHelper.sharedInstance
-    var nothingFound : Bool = true
+    var nothingFound : Bool = true {
+        didSet {
+            setImagesForScrollView()
+            setViewsInScrollView()
+            loadVisiblePages()
+        }
+    }
     var cellId = "NoEventFoundCell"
     
     
@@ -29,11 +35,10 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setting the appearance of tab bar and items
-        setAppearanceForTabbar()
-        setImagesForScrollView()
-        setViewsInScrollView()
-        loadVisiblePages()
+        self.setAppearanceForTabbar()
+        self.setImagesForScrollView()
+        self.setViewsInScrollView()
+        self.loadVisiblePages()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableViewWithUpdatedData", name: "EventsDownloadedNotification", object: nil)
         
@@ -49,10 +54,10 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        //un-hiding the tab bar
+        //un-hiding the tab bar, nav-bar and button
         self.tabBarController?.tabBar.hidden = false
         self.navigationController?.navigationBar.hidden = false
-        
+        self.tabBarController?.view.viewWithTag(200)?.hidden = false
         
         //checking for updates agressively
         delay(30.0){
@@ -70,6 +75,8 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
         if segue.identifier == "ShowEventDetail" {
             let vc = segue.destinationViewController as! EventDetailViewController
             vc.event = data.events[(sender?.row)!]
+            self.tabBarController?.view.viewWithTag(200)?.hidden = true
+            
         }
     }
     
@@ -208,6 +215,8 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
     
     func reloadTableViewWithUpdatedData() {
         tableView.reloadData()
+        
+
     }
     
     func showErrorWithMessage(message : String) {
@@ -222,6 +231,7 @@ class EventsHomeViewController: UIViewController, UIScrollViewDelegate {
             ),
             dispatch_get_main_queue(), closure)
     }
+    
     
 
     /*

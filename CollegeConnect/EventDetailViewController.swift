@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Foundation
 
 class EventDetailViewController: UITableViewController {
     
@@ -26,12 +27,18 @@ class EventDetailViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventImageView.kf_setImageWithURL(NSURL(string: event.imageRemoteUrl!)!, placeholderImage: UIImage(named: "pholder"))
+        eventImageView.kf_setImageWithURL(NSURL(string: event.imageRemoteUrl!)!, placeholderImage: UIImage(named: "pholder"), optionsInfo : nil , progressBlock : nil){
+            (image,_,_,imageUrl) -> () in
+            self.tableView.backgroundColor = UIColor(patternImage: image!)
+            
+        }
+        
+        
         setupRowsForTableView()
         
-        if let image = event.imageOfEvent {
-            tableView.backgroundColor = UIColor(patternImage: image)
-        }
+//        if let image = event.imageOfEvent {
+//            tableView.backgroundColor = UIColor(patternImage: image)
+//        }
         
         let blurEffect = UIBlurEffect(style: .Dark)
         let blurView = UIVisualEffectView(effect: blurEffect)
@@ -90,7 +97,6 @@ class EventDetailViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-         print(rowType.count)
          return rowType.count
     }
 
@@ -101,7 +107,7 @@ class EventDetailViewController: UITableViewController {
         
         switch eventType {
         case "Type1" : let label = cell.viewWithTag(100) as! UILabel
-                        label.text = event.name
+                        label.text = event.name.capitalizedString
                         label.textColor = UIColor.whiteColor()
             
         case "Type2" : let heading = cell.viewWithTag(100) as! UILabel
@@ -198,13 +204,16 @@ class EventDetailViewController: UITableViewController {
         if event.timeanddate != nil {
             rowType.append("Type2")
             rowInfo.append("Time and date")
-            rowInfoDetail.append(String(event.timeanddate!))
+            let df = NSDateFormatter()
+            df.dateStyle = .LongStyle
+            df.dateFormat = "dd-MM-yy H:mm a"
+            rowInfoDetail.append(df.stringFromDate(event.timeanddate!))
             i++
         }
         if event.venue != nil {
             rowType.append("Type2")
             rowInfo.append("Venue")
-            rowInfoDetail.append(event.venue)
+            rowInfoDetail.append(event.venue.capitalizedString)
             
         }
         if event.aboutEvent != nil {
